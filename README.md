@@ -20,5 +20,5 @@
 >git checkout --orphan gh-pages
 然后访问的时候将路径中的
 
-* 原网址 https://github.com/hahaniu666/testGitPage/blob/gh-pages/test/index.html中的blob/gh-pages删掉后复制 testGitPage/blob/gh-pages/test/index.html粘贴到https://hahaniu666.github.io后面即可
+* 原网址 https://github.com/hahaniu666/testGitPage/blob/gh-pages/test/index.html中的blob/gh-pages删掉后复制 testGitPage/test/index.html粘贴到https://hahaniu666.github.io后面即可
 
