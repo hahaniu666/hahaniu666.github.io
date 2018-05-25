@@ -37,3 +37,5 @@ markdown: kramdown
 highlighter: rouge
 sass:
   style: compressed
+
+theme: jekyll-theme-dinky
