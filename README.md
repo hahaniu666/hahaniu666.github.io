@@ -1,24 +1,18 @@
-# hahaniu666.github.io
+### 我的博客
 
-此页面测试github.pages用，以后慢慢更新
+地址：[http://hahaniu.top](http://hahaniu.top)
 
+### 安装说明
 
-# blog
+1. fork库到自己的github
+2. 修改名字为：`username.github.io`
+3. clone库到本地，参考`_posts`中的目录结构自己创建适合自己的文章目录结构
+4. 修改CNAME，或者删掉这个文件，使用默认域名
+5. 修改`_config.yml`配置项
+6. It's done!
 
+### 分支说明
 
->建域名保留地
-
-### hahaniu的窝
->[域名：https://hahaniu666.github.io](https://hahaniu666.github.io)
-<hr>
-
-测试github.pages成功了
-
-### 访问其他仓库页面
-
-1.需要在仓库下创建gh-pages分支
->git checkout --orphan gh-pages
-然后访问的时候将路径中的
-
-* 原网址 https://github.com/hahaniu666/testGitPage/blob/gh-pages/test/index.html中的blob/gh-pages删掉后复制 testGitPage/test/index.html粘贴到https://hahaniu666.github.io后面即可
-
+- 三栏布局（master分支，基于[3-Jekyll](https://github.com/P233/3-Jekyll)）
+- 三栏布局 (bootstrap-based分支，基于Bootstrap)
+- 单栏布局（first-ui分支，基于Bootstrap）
