@@ -19,12 +19,12 @@ github: hahaniu666
 # dribbble: username
 
 # avatar头像及Favicon
-avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+avatar: https://avatars3.githubusercontent.com/u/19663312?s=40&v=4
+#favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: mufeng-zh
 
 # google analytics 设置
 ga:
@@ -38,4 +38,4 @@ highlighter: rouge
 sass:
   style: compressed
 
-theme: jekyll-theme-dinky
+# theme: jekyll-theme-dinky
