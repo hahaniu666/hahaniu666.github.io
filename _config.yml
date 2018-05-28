@@ -23,13 +23,13 @@ avatar: https://avatars3.githubusercontent.com/u/19663312?s=40&v=4
 # favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
 # disqus 设置
-disqus:
-  shortname: mufeng-zh
+#disqus:
+#  shortname: mufeng-zh
 
 # google analytics 设置
-ga:
-  id: UA-54767140-1
-  url: hahaniu.top
+#ga:
+#  id: UA-54767140-1
+#  url: hahaniu.top
 
 # Build settings
 permalink: /:year/:month/:day/:title.html
