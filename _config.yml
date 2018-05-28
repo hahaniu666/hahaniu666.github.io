@@ -1,32 +1,34 @@
 # Site settings
-title: 沐风的个人博客
+title: 沐风的博客
 email: 1052637951@qq.com
 description: > # this means to ignore newlines until "baseurl:"
   沐风的博客
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://hahaniu.top" # the base hostname & protocol for your site
+url: http://hahaniu.top # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
+author: mufeng
 
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
 filter: 'category'
+recent_num: 20
 
 # Social account
-# twitter: masonsuyan
-# weibo:    ID
+#twitter: suyan404
+#weibo: suyan0830
 github: hahaniu666
-# codepen:  username
-# dribbble: username
+#instagram: suyan404
+#linkedin: suyan404
 
-# avatar头像及Favicon
-avatar: https://avatars3.githubusercontent.com/u/19663312?s=40&v=4
-# favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+# avatar and Favicon
+avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
+favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
-# disqus 设置
+# disqus config
 #disqus:
-#  shortname: mufeng-zh
+#   shortname: mufeng-zh
 
-# google analytics 设置
+# google analytics config
 #ga:
 #  id: UA-54767140-1
 #  url: hahaniu.top
@@ -35,7 +37,14 @@ avatar: https://avatars3.githubusercontent.com/u/19663312?s=40&v=4
 permalink: /:year/:month/:day/:title.html
 markdown: kramdown
 highlighter: rouge
+mathjax: disabled
 sass:
   style: compressed
 
-# theme: jekyll-theme-dinky
+# Jekyll Plugin
+# https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/
+gems:
+#  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
