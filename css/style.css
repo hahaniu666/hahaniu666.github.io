@@ -1,0 +1,944 @@
+body, button, dd, dl, dt, form, h1, h2, h3, h4, h5, h6, hr, input, li, ol, p, td, textarea, th, ul {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background: #fff !important;
+}
+
+img {
+    vertical-align: top;
+}
+
+a img {
+    border: none;
+}
+
+a {
+    color: #5d3a88;
+    text-decoration: none;
+    outline-style: none;
+}
+
+var, em {
+    font-style: normal
+}
+
+ul, li {
+    list-style: none
+}
+
+.cover {
+    width: 100%;
+    /*height: 100%;*/
+    position: relative;
+    text-align: center;
+}
+
+.cover-bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: auto
+}
+
+.cover-bg img {
+    position: absolute;
+    display: none;
+}
+
+.cover .title {
+    color: #4f4d46;
+    font-size: 2.8em;
+    padding-top: 40px;
+    padding-left: 20px;
+    font-weight: 900;
+    margin-bottom: 20px
+}
+
+.cover .sub-title {
+    /*font-size: 1em;*/
+    font-size: 25px;
+    text-align: center;
+    position: relative;
+    padding-top: 10px;
+    height: 120px;
+}
+
+.cover .sub-title p {
+    padding-top: 7px;
+    display: none;
+    color: #999999;
+
+}
+
+.cover .image-wrap {
+    position: relative;
+    width: 375px;
+    height: 375px;
+    margin: 0 auto;
+    margin-top: 20px;
+    /*background: red;*/
+}
+
+/*新的logo显示*/
+.cover .img-wrap {
+    position: relative;
+    /*width: 375px;*/
+    /*height: 375px;*/
+    margin: 0 auto;
+    margin-top: 20px;
+    /*border-radius: 50%;*/
+    overflow: hidden;
+    /*-webkit-transform: scale(0));*/
+    /*-ms-transform: scale(0);*/
+    /*transform: scale(0);*/
+}
+
+.animation {
+    /* infinite*/
+    -webkit-animation: image 6s infinite forwards;
+    animation: image 6s infinite forwards;
+}
+
+@-webkit-keyframes image {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes image {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes image {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cover .tip {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    bottom: 35px;
+    display: none
+}
+
+.wrap {
+    width: 990px;
+    height: 900px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.content-div {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+    width: 100%;
+    height: auto
+}
+
+.content-wrap {
+    font-family: "Microsoft YaHei";
+    width: 1200px;
+    margin: 0 auto;
+    font-size: 28px;
+    line-height: 1.5em;
+    text-align: left;
+}
+
+.content-wrap p {
+    padding-top: 15px;
+    padding-bottom: 15px
+}
+
+.content-wrap .subtitle span {
+    /*border-bottom: 2px #333 solid;*/
+    padding-bottom: 4px;
+    font-weight: bold
+}
+.content-wrap p span.first {
+    /*border-bottom: 2px #333 solid;*/
+    /*padding-bottom: 4px;*/
+    font-weight: bold;
+
+}
+.content-wrap .subtitle {
+    color: #333;
+    font-size: 30px;
+    text-align: left;
+}
+
+.content-wrap .caption {
+    color: #333;
+    font-size: 18px;
+    line-height: 28px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.part-distance {
+    width: 1200px;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.part-distance .selectWrap {
+    width: 180px;
+    height: 25px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.part-distance .byDistance {
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.part-distance .pointerFrame {
+    float: left;
+    width: 50px;
+    border-radius: 20px;
+    border: 1px #bbb solid;
+    height: 20px;
+    position: relative;
+    background-color: #eee
+}
+
+.part-distance .pointer {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    position: absolute;
+    left: 0px
+}
+
+.part-distance .byTime {
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.part-distance .color2 {
+    background-color: #89bdd3
+}
+
+.part-distance .color1 {
+    background-color: #d48265
+}
+
+.part-distance .hitDis {
+    width: 25px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    left: 55px;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.part-distance .hitTime {
+    width: 25px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    left: 85px;
+    z-index: 99;
+    cursor: pointer;
+}
+
+/*时间轴*/
+.time-axis-wrap {
+    position: relative;
+    width: 1200px;
+    /*height: 400px;*/
+    margin: 0 auto;
+}
+
+/*时间轴*/
+.time-axis-wrap1 {
+    position: relative;
+    width: 1200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+/*时间轴*/
+.time-axis-wrap .time-axis-line {
+    width: 100%;
+    height: 150px;
+    border: 2px solid #ccc;
+    position: relative;
+}
+
+/*时间轴*/
+.time-axis-wrap1 .time-axis-line1 {
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+}
+
+.time-axis-wrap .time-axis-line > .trangel {
+    width: 0;
+    height: 0;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ccc;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+}
+
+.time-axis-wrap1 .time-axis-line1 > .trangel1 {
+    width: 0;
+    height: 0;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ccc;
+    position: absolute;
+    bottom: -8px;
+    right: -10px;
+}
+
+.time-axis-wrap .time-axis-detail {
+    position: absolute;
+    width: 100px;
+    text-align: center;
+    display: none;
+}
+
+.time-axis-wrap1 .time-axis-detail1 {
+    position: absolute;
+    width: 80px;
+    text-align: center;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*display: none;*/
+
+    visibility: hidden;
+}
+
+.time-axis-wrap1 .time-axis-detail1 .axis-line1 {
+    width: 1px;
+    background: #ccc;
+    height: 40px;
+}
+
+.time-axis-wrap1 .time-axis-detail1 .circle {
+    width: 4px;
+    height: 4px;
+    border: 2px solid #999999;
+    border-radius: 50%;
+    background: #fff;
+}
+
+
+.time-axis-wrap .time-axis-detail img {
+    width: 60px;
+}
+
+.time-axis-wrap .time-axis-detail .axis-title {
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+    margin-top: 10px;
+}
+
+.time-axis-wrap1 .time-axis-detail1 .axis-title1 {
+    font-size: 16px;
+    text-align: center;
+    color: #84acd3;
+}
+
+.time-axis-wrap .time-axis-detail .axis-time {
+    font-size: 18px;
+    text-align: center;
+    color: #89bdd3;
+    /*margin-top: 10px;*/
+}
+
+.time-axis-wrap1 .time-axis-detail1 .axis-time1 {
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+    /*margin-top: 10px;*/
+}
+
+/*城市对比*/
+.content-wrap .chart-wrap {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.content-wrap .chart-wrap:nth-of-type(even) {
+    float: right;
+
+}
+
+.content-wrap .chart-wrap:nth-of-type(odd) {
+    float: left;
+}
+
+.content-wrap .chart-wrap .chart {
+    width: 100%;
+    height: 180px;
+    border: 1px solid #d5d5d5;
+    box-sizing: border-box;
+}
+
+.content-wrap .chart-wrap .chart-tips {
+    color: #B4D9FA;
+}
+
+/*城市政策力度对比*/
+.content-wrap .btn-wrap {
+
+}
+
+.content-wrap .zhengceChart {
+    width: 1200px;
+    height: 640px;
+}
+
+.content-wrap .btn-wrap .btn {
+    box-sizing: border-box;
+    height: 36px;
+    line-height: 32px;
+    text-align: center;
+    float: left;
+    margin: 0 12px;
+    padding: 2px 8px;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+}
+
+.content-wrap .btn-wrap .btn:nth-last-of-type(1) {
+    margin-right: 0;
+}
+
+.content-wrap .btn-chart-wrap {
+    width: 100%;
+    height: 320px;
+    box-sizing: border-box;
+    border: 1px solid #d5d5d5;
+    position: relative;
+    margin-top: 40px;
+}
+
+.content-wrap .btn-chart-wrap .btn-chart {
+    width: 100%;
+    height: 320px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+}
+
+.content-wrap .currency-chart {
+    width: 100%;
+    height: 320px;
+    background: #fff;
+    position: relative;
+}
+
+.content-wrap .currency-chart .sandian-line1 {
+    width: 0px;
+    height: 4px;
+    background: #666;
+    position: absolute;
+    transform: rotate(-12deg);
+    left: 57px;
+    top: 252px;
+    transition: all 1s;
+
+}
+
+.content-wrap .currency-chart .sandian-line2 {
+    width: 0px;
+    height: 4px;
+    background: #666;
+    position: absolute;
+    transform: rotate(27deg);
+    left: 421px;
+    top: 192px;
+    transition: all 1s;
+
+}
+
+.content-wrap .currency-chart .sandian-line3 {
+    width: 0px;
+    height: 4px;
+    background: #666;
+    position: absolute;
+    transform: rotate(-27deg);
+    left: 798px;
+    top: 243px;
+    transition: all 1s;
+
+}
+
+.content-wrap .currency-title {
+    width: 100%;
+    text-align: center;
+    color: #B7DDE3;
+}
+
+.video-play {
+    background-image: url(images/vigdeo-button.png);
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/*
+城市对比
+*/
+
+.part-top10 {
+    width: 600px;
+    height: 1100px;
+    position: relative;
+    margin: 0 auto;
+    /*overflow: hidden;*/
+    text-align: center;
+    transform: scaleX(1.4) scaleY(1.2) translateY(100px);
+    /*padding-left: 27px;*/
+    /*padding-top: 10px;*/
+}
+
+.part-top10 ul {
+    width: 15.5%;
+    float: left;
+}
+
+.part-top10 ul.rank {
+    width: 3%;
+    float: left;
+}
+
+.part-top10 li {
+    height: 37px;
+}
+
+.part-top10 .col1 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
+}
+
+.part-top10 .col2 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
+
+}
+
+.part-top10 .col3 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
+
+}
+
+.part-top10 .col4 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
+
+}
+
+.part-top10 .col5 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
+
+}
+
+.part-top10 .col6 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
+
+}
+
+.part-top10 .col1 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #add0df;
+    border-radius: 4px;
+    line-height: 37px;
+    height: 40px;
+
+}
+
+.part-top10 .col2 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #84acd3;
+    border-radius: 4px;
+    line-height: 37px;
+    height: 40px;
+
+}
+
+.part-top10 .col3 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #add0df;
+    border-radius: 4px;
+    line-height: 37px;
+    height: 40px;
+
+}
+
+.part-top10 .col4 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #84acd3;
+    border-radius: 4px;
+    height: 40px;
+    line-height: 37px;
+
+}
+
+.part-top10 .col5 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #add0df;
+    border-radius: 4px;
+    height: 40px;
+    line-height: 37px;
+
+}
+
+.part-top10 .col6 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #84acd3;
+    border-radius: 4px;
+    line-height: 37px;
+    height: 40px;
+
+}
+
+.part-top10 li span {
+    padding: 3px 13px;
+    border-radius: 13px
+}
+
+.part-top10 ul.rank li {
+    height: 33px;
+    padding-top: 4px;
+    color: #999;
+    text-align: right;
+}
+
+.part-top10 ul.col1 .chosen {
+    background-color: #add0df;
+    color: #fff
+}
+
+.part-top10 ul.col2 .chosen {
+    /*#deca90 黄*/
+    /*#5a1114 红*/
+    /*#4e3929 黑*/
+
+    background-color: #84acd3;
+    color: #fff
+}
+
+.part-top10 ul.col3 .chosen {
+    background-color: #add0df;
+    color: #fff
+}
+
+.part-top10 ul.col4 .chosen {
+    background-color: #84acd3;
+    color: #fff
+}
+
+.part-top10 ul.col5 .chosen {
+    background-color: #add0df;
+    color: #fff
+}
+
+.part-top10 ul.col6 .chosen {
+    background-color: #84acd3;
+    color: #fff
+}
+
+/*底部制作人*/
+.credit {
+    font-size: 20px;
+    line-height: 1.5em;
+    color: #999;
+    margin-top: 70px
+}
+
+.citys_map {
+    position: relative;
+
+}
+
+.citys_map .heihe-line {
+    position: absolute;
+    top: 338px;
+    left: 415px;
+    width: 580px;
+    height: 6px;
+    background: #333;
+    transform: rotate(-45deg) scale(0);
+    transition: all 1s;
+
+}
+
+.citys_map .qinhuai-line1 {
+    position: absolute;
+    top: 420px;
+    left: 645px;
+    width: 0px;
+    height: 6px;
+    background: #333;
+    transition: all 1s;
+
+}
+
+.citys_map .heihe-circle1 {
+
+    width: 114px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid #84acd3;
+    position: absolute;
+    left: 610px;
+    top: 300px;
+    transform: rotate(-30deg) scale(0);
+
+    transition: all 1s;
+}
+
+.citys_map .heihe-circle2 {
+
+    width: 150px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #84acd3;
+    position: absolute;
+    left: 820px;
+    top: 170px;
+    transform: rotate(-63deg) scale(0);
+    transition: all 1s;
+
+}
+
+.citys_map .heihe-circle3 {
+
+    width: 140px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #84acd3;
+    position: absolute;
+    left: 709px;
+    top: 296px;
+    transform: rotate(15deg) scale(0);
+    transition: all 1s;
+
+}
+
+.citys_map .heihe-circle4 {
+
+    width: 130px;
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid #84acd3;
+    position: absolute;
+    left: 581px;
+    top: 426px;
+    transform: rotate(-12deg) scale(0);
+    transition: all 1s;
+
+}
+
+.citys_map .heihe-circle5 {
+    width: 120px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid #84acd3;
+    position: absolute;
+    left: 691px;
+    top: 446px;
+    transform: rotate(-92deg) scale(0);
+    transition: all 1s;
+
+}
+
+.citys_map .heihe-circle6 {
+    width: 130px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid #84acd3;
+    position: absolute;
+    left: 781px;
+    top: 416px;
+    transform: rotate(13deg) scale(0);
+    transition: all 1s;
+
+}
+
+.content-wrap .currency-chart .block_wrap {
+    width: 782px;
+    height: 533px;
+    border: 1px solid #d5d5d5;
+    position: absolute;
+    left: 209px;
+    top: 17px;
+}
+
+.content-wrap .currency-chart .block_wrap .left-top {
+    width: 180px;
+    height: 180px;
+    background: #e3e3e3;
+}
+
+.content-wrap .currency-chart .block_wrap .div1 {
+    width: 218px;
+    height: 215px;
+    background: #6190ab;
+    position: absolute;
+    left: 247px;
+    top: 33px;
+    line-height: 215px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+
+    transition: all 0.5s;
+}
+
+.content-wrap .currency-chart .block_wrap .div1:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.content-wrap .currency-chart .block_wrap .div6 {
+    width: 169px;
+    height: 193px;
+    background: #6dacc7;
+    position: absolute;
+    left: 119px;
+    line-height: 193px;
+    top: 215px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    transition: all 0.5s;
+
+}
+
+.content-wrap .currency-chart .block_wrap .div6:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.content-wrap .currency-chart .block_wrap .div3 {
+    width: 170px;
+    height: 155px;
+    background: #78c0da;
+    position: absolute;
+    top: 367px;
+    left: 255px;
+    line-height: 155px;
+    text-align: center;
+    font-size: 20px;
+    transition: all 0.5s;
+
+    color: #fff;
+}
+
+.content-wrap .currency-chart .block_wrap .div3:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.content-wrap .currency-chart .block_wrap .div4 {
+    width: 135px;
+    height: 135px;
+    background: #79b9d9;
+    position: absolute;
+    left: 442px;
+    top: 211px;
+    line-height: 135px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    transition: all 0.5s;
+
+}
+
+.content-wrap .currency-chart .block_wrap .div4:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.content-wrap .currency-chart .block_wrap .div5 {
+    width: 95px;
+    height: 93px;
+    background: #b1ccd5;
+    position: absolute;
+    top: 120px;
+    left: 573px;
+    line-height: 93px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    transition: all 0.5s;
+
+}
+
+.content-wrap .currency-chart .block_wrap .div5:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.content-wrap .currency-chart .block_wrap .left-top > span {
+    font-size: 12px;
+    width: 170px;
+    height: 30px;
+    line-height: 30px;
+    /* background: #e3e3e3; */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+}
+
+.content-wrap .currency-chart .block_wrap .left-top > .trangel2 {
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-width: 128px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    left: 52px;
+    top: 52px;
+    transform: rotate(45deg);
+}

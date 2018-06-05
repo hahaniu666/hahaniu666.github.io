@@ -1,0 +1,2569 @@
+<html>
+<head>
+    <title>人才新政</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <link rel="shortcut icon" href="images/logo.ico">
+
+    <script src="js/jquery.js" language="javascript"></script>
+    <script src="js/d3.min.js" language="javascript"></script>
+    <script src="js/didi.js" language="javascript"></script>
+    <script src="js/jquery.color.js" language="javascript"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/china.js"></script>
+
+    <!--轮播图-->
+    <script src="js/velocity.js"></script>
+    <script src="js/swiper.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.css">
+
+    <style>
+        a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: dotted 1px;
+        }
+
+        #page-wrapper {
+            margin-bottom: 250px;
+            position: relative;
+            background-color: #ffffff;
+        }
+
+        #banner {
+            box-sizing: border-box;
+            background-color: #333333;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 8em 0 6em 0;
+            -moz-align-items: center;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            align-items: center;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -moz-justify-content: center;
+            -webkit-justify-content: center;
+            -ms-justify-content: center;
+            justify-content: center;
+            background-image: url(images/banner.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-top: 0;
+            min-height: 100vh;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #banner:before {
+            -moz-transition: opacity 3s ease;
+            -webkit-transition: opacity 3s ease;
+            -ms-transition: opacity 3s ease;
+            transition: opacity 3s ease;
+            -moz-transition-delay: 1.25s;
+            -webkit-transition-delay: 1.25s;
+            -ms-transition-delay: 1.25s;
+            transition-delay: 1.25s;
+            content: '';
+            display: block;
+            background-color: #333333;
+            height: 100%;
+            left: 0;
+            opacity: 0.45;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        #banner .more {
+            -moz-transition: height 0.2s ease;
+            -webkit-transition: height 0.2s ease;
+            -ms-transition: height 0.2s ease;
+            transition: height 0.2s ease;
+            -moz-animation: more 0.75s ease-out 2s forwards;
+            -webkit-animation: more 0.75s ease-out 2s forwards;
+            -ms-animation: more 0.75s ease-out 2s forwards;
+            animation: more 0.75s ease-out 2s forwards;
+            background-color: #ffffff;
+            background-image: url(images/arrow.svg);
+            background-position: 50% 0.875em;
+            background-repeat: no-repeat;
+            background-size: auto;
+            border: 0;
+            border-radius: 4px 4px 0 0;
+            bottom: -3em;
+            color: #8e8e8e;
+            display: block;
+            height: 3em;
+            left: 50%;
+            margin-left: -2.5em;
+            overflow: hidden;
+            position: absolute;
+            text-indent: 5em;
+            white-space: nowrap;
+            width: 5em;
+            z-index: 2;
+        }
+
+        @keyframes more {
+            0% {
+                bottom: -3em;
+            }
+            100% {
+                bottom: 0;
+            }
+        }
+
+        #banner video {
+            -moz-transform: translateX(50%) translateY(50%);
+            -webkit-transform: translateX(50%) translateY(50%);
+            -ms-transform: translateX(50%) translateY(50%);
+            transform: translateX(50%) translateY(50%);
+            position: absolute;
+            bottom: 50%;
+            right: 50%;
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            overflow: hidden;
+        }
+
+        #banner .inner {
+            -moz-transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+            -ms-transform: scale(1.0);
+            transform: scale(1.0);
+            -moz-transition: opacity 1s ease, -moz-transform 1s ease;
+            -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
+            -ms-transition: opacity 1s ease, -ms-transform 1s ease;
+            transition: opacity 1s ease, transform 1s ease;
+            opacity: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .button {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-radius: 4px;
+            border: 0;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.8em;
+            font-weight: 500;
+            height: 3.5em;
+            letter-spacing: 0.25em;
+            line-height: 3.5em;
+            padding: 0 2em;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        section header {
+            margin: 0 0 2em 0;
+        }
+
+        ul.actions {
+            cursor: default;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.actions li {
+            display: inline-block;
+            padding: 0 1em 0 0;
+            vertical-align: middle;
+        }
+
+        #banner .button.special {
+            box-shadow: none;
+            background-color: #ffffff;
+            color: #333333 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!--首屏-->
+<div id="page-wrapper">
+    <div class="wrapewwe"
+         style="width: 100%;height: 100%;background: transparent;position: absolute;z-index: 100;"></div>
+    <section id="banner" data-video="images/banner">
+        <a href="#one" class="more scrolly">Learn More</a>
+        <video autoplay="" loop="">
+            <source src="images/banner.mp4" type="video/mp4">
+            <source src="images/banner.webm" type="video/webm">
+        </video>
+
+        <div class="inner">
+            <header>
+                <h1 style="    font-size: 4.75em;">知道你很忙 <br> 我们为你读了37个城市的人才新政</h1>
+                <p style="font-size: 34px">席卷大半个中国的“人才大战”，<br>只是一次二线城市房地产“去库存”运动？</p>
+            </header>
+            <div class=""></div>
+            <!-- <ul class="actions">
+                 <li><a class="button special big" style="cursor: pointer;">Get Started</a></li>
+             </ul>-->
+        </div>
+    </section>
+</div>
+
+<!---->
+<!--<div class="cover">
+    <div class="sub-title">
+        <p>“引言：”</p>
+        <p>“席卷大半个中国的“人才运动”，”</p>
+        <p>“只是一次二线城市房地产“去库存”运动？”</p>
+    </div>
+    &lt;!&ndash;<div class="tip"><img src="images/tip.png"></div>&ndash;&gt;
+</div>-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p>2017年，北京和上海出现了40年来常住人口的首次负增长，与之相对的是，西安的常住人口净增70万，深圳净增62万，杭州28万，长沙27万，重庆26万……</p>
+        <p><span class="first">在诸多的城市选项面前，人们似乎在用脚投票。</span></p>
+        <p>去年4月起，24个城市相继出台了人才政策。这是一场二线城市之间的角力，它正在打破中国城市发展与人口流动的旧平衡。</p>
+        <p>我们收集了37个城市的资料，它们是除北上广深之外的省会城市、直辖市以及地方区域性经济城市。其中，24个城市已颁布了人才政策。</p>
+    </div>
+</div>
+
+<!--人才新政地图-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle"><span class="blue">人才大战的时间与空间</span></p>
+    </div>
+</div>
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center"><span
+                style="font-size: 26px;color: #666;">—— 新一轮人才新政颁布时间轴 ——</span></p>
+        <p class="caption" style="text-align: center; color: #999;">数据来源：各省市政府网站</p>
+    </div>
+</div>
+
+<div class="time-axis-wrap1">
+
+
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1" style="color: #add0df">杭州</div>
+        <div class="axis-time1">04.11</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px;left: 8px">
+        <div class="axis-time1">04.12</div>
+        <div class="axis-title1" style="color: #add0df">重庆</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left: 50px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1" style="color: #add0df">南京</div>
+        <div class="axis-time1">04.24</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left: 65px;">
+        <div class="axis-time1">05.02</div>
+        <div class="axis-title1" style="color: #add0df">哈尔滨</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left: 100px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1" style="color: #add0df">西安</div>
+        <div class="axis-time1">05.08</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left: 125px;">
+        <div class="axis-time1">05.22</div>
+        <div class="axis-title1" style="color: #add0df">济南</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left: 170px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1" style="color: #add0df">武汉</div>
+        <div class="axis-time1">06.14</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left: 195px;">
+        <div class="axis-time1">06.20</div>
+        <div class="axis-title1" style="color: #add0df">合肥</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left: 220px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1" style="color: #add0df">长沙</div>
+        <div class="axis-time1">06.21</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left: 255px;">
+        <div class="axis-time1">07.18</div>
+        <div class="axis-title1" style="color: #add0df">鄂尔多斯</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left: 270px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1" style="color: #add0df">成都</div>
+        <div class="axis-time1">07.21</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left: 355px;">
+        <div class="axis-time1">11.24</div>
+        <div class="axis-title1" style="color: #add0df">郑州</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left:400px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1" style="color: #add0df">厦门</div>
+        <div class="axis-time1">12.15</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left:450px;">
+        <div class="axis-time1">12.28</div>
+        <div class="axis-title1" style="color: #add0df">沈阳</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left:490px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1">长春</div>
+        <div class="axis-time1">01.04</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left:540px">
+        <div class="axis-time1">02.03</div>
+        <div class="axis-title1">太原</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left:550px;">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1">天津</div>
+        <div class="axis-time1">02.04</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left:640px">
+        <div class="axis-time1">04.08</div>
+        <div class="axis-title1">石家庄</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left:670px">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1">福州，银川</div>
+        <div class="axis-time1">04.18</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left:700px">
+        <div class="axis-time1">04.23</div>
+        <div class="axis-title1">珠海</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left:770px">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1">呼和浩特</div>
+        <div class="axis-time1">05.02</div>
+    </div>
+    <!--上-->
+    <div class="time-axis-detail1" style="top:  10px; left:810px">
+        <div class="axis-time1">05.08</div>
+        <div class="axis-title1">南昌</div>
+        <div class="axis-line1"></div>
+        <div class="circle"></div>
+    </div>
+    <!--下-->
+    <div class="time-axis-detail1" style="top: 97px;left:850px">
+        <div class="circle"></div>
+        <div class="axis-line1"></div>
+        <div class="axis-title1">海口（南）</div>
+        <div class="axis-time1">05.13</div>
+    </div>
+
+
+    <div class="block-tips" style="width: 100px;height: 60px;position: absolute;top: 0;right: 0">
+        <div class="seven" style="width: 100px;height: 25px;line-height: 25px">
+            <div class="b"
+                 style="width: 50px;display: inline-block;height: 25px;background: #add0df;   border-radius: 4px;"></div>
+            <span style="    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: super;">2017</span>
+        </div>
+        <div class="seven" style="width: 100px;height: 25px;line-height: 25px;margin-top: 10px">
+            <div class="b"
+                 style="width: 50px;display: inline-block;height: 25px;background:  #84acd3; border-radius: 4px"></div>
+            <span style="    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: super;">2018</span>
+        </div>
+    </div>
+    <div class="time-axis-line1">
+        <div class="trangel1"></div>
+    </div>
+</div>
+
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <!--<p class="subtitle" style="text-align: center"><span style="font-size: 26px;color: #666;">—— “抢人大战”的全国地图 ——</span></p>-->
+        <p class="caption" style="text-align: center; color: #999;">注释：以各城市自2017年以来的首份人才政策颁布时间为准。
+
+        </p>
+    </div>
+</div>
+
+<!--时间轴详情-->
+<!--<div class="time-axis-wrap">
+
+
+    <div class="time-axis-detail" style="left: 0;top: -78px;">
+        <div class="axis-title">
+            杭州
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.04.11</div>
+    </div>
+
+
+    <div class="time-axis-detail" style="left: 120px;top: -78px;">
+        <div class="axis-title">
+            重庆
+        </div>
+
+        <img src="images/coordinate.png" alt="">
+
+        <div class="axis-time">2017.04.12</div>
+    </div>
+
+    <div class="time-axis-detail" style="left: 320px;top: -78px;">
+        <div class="axis-title">
+            南京
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.04.24</div>
+    </div>
+
+    <div class="time-axis-detail" style="left: 500px;top: -78px;">
+        <div class="axis-title">
+            哈尔滨
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.05.02</div>
+    </div>
+
+
+    &lt;!&ndash; left: 30px;top: 74px; &ndash;&gt;
+    <div class="time-axis-detail" style="left: 630px;top: -78px;">
+        <div class="axis-title">
+            西安
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.05.08</div>
+    </div>
+    &lt;!&ndash; left:200px;top: 74px;&ndash;&gt;
+    <div class="time-axis-detail" style="left: 800px;top: -78px;">
+        <div class="axis-title">
+            济南
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.05.22</div>
+    </div>
+
+    &lt;!&ndash;   left:350px;top: 74px;&ndash;&gt;
+    <div class="time-axis-detail" style="left: 950px;top: -78px;">
+        <div class="axis-title">
+            武汉
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.06.14</div>
+    </div>
+    &lt;!&ndash;left:470px;top: 74px;&ndash;&gt;
+    <div class="time-axis-detail" style=" left: 1100px;top: -78px;">
+        <div class="axis-title">
+            合肥
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.06.20</div>
+    </div>
+
+    &lt;!&ndash;225px&ndash;&gt;
+    <div class="time-axis-detail" style="left:0px;top: 74px;">
+        <div class="axis-title">
+            长沙
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.06.21</div>
+    </div>
+
+    &lt;!&ndash;以下需要重新调整&ndash;&gt;
+    <div class="time-axis-detail" style="left:260px;top: 74px;">
+        <div class="axis-title">
+            鄂尔多斯
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.07.18</div>
+    </div>
+    <div class="time-axis-detail" style="left:390px;top: 74px;">
+        <div class="axis-title">
+            成都
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.07.21</div>
+    </div>
+    <div class="time-axis-detail" style="left:510px;top: 74px;">
+        <div class="axis-title">
+            郑州
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.11.24</div>
+    </div>
+
+    &lt;!&ndash;375&ndash;&gt;
+    &lt;!&ndash;left:10px;top: 375px;  &ndash;&gt;
+    <div class="time-axis-detail" style="left:610px;top: 74px;">
+        <div class="axis-title">
+            厦门
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.11.25</div>
+    </div>
+    &lt;!&ndash;&ndash;&gt;
+    <div class="time-axis-detail" style="left:725px;top: 74px;">
+        <div class="axis-title">
+            沈阳
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2017.12.28</div>
+    </div>
+    <div class="time-axis-detail" style="left:880px;top: 74px;">
+        <div class="axis-title">
+            长春
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.01.04</div>
+    </div>
+
+    <div class="time-axis-detail" style="left:1080px;top: 74px;">
+        <div class="axis-title">
+            太原
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.02.03</div>
+    </div>
+
+    &lt;!&ndash;525px&ndash;&gt;
+    <div class="time-axis-detail" style="left:0px;top: 225px;">
+        <div class="axis-title">
+            天津
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.02.04</div>
+    </div>
+    <div class="time-axis-detail" style="left:300px;top: 225px;">
+        <div class="axis-title">
+            石家庄
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.04.08</div>
+    </div>
+
+
+    <div class="time-axis-detail" style="left:440px;top: 225px;">
+        <div class="axis-title">
+            福州
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.04.18</div>
+    </div>
+    <div class="time-axis-detail" style="left:540px;top: 225px;">
+        <div class="axis-title">
+            银川
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.04.18</div>
+    </div>
+
+    &lt;!&ndash;&ndash;&gt;
+    <div class="time-axis-detail" style="left:680px;top: 225px;">
+        <div class="axis-title">
+            珠海
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.04.23</div>
+    </div>
+
+
+    <div class="time-axis-detail" style="left:850px;top: 225px;">
+        <div class="axis-title">
+            呼和浩特
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.05.02</div>
+    </div>
+    <div class="time-axis-detail" style="left:960px;top: 225px;">
+        <div class="axis-title">
+            南昌
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.05.08</div>
+    </div>
+    <div class="time-axis-detail" style="left:1100px;top: 225px;">
+        <div class="axis-title" style="word-wrap: break-word;word-break: keep-all;">
+            海口（海南）
+        </div>
+        <img src="images/coordinate.png" alt="">
+        <div class="axis-time">2018.05.13</div>
+    </div>
+
+
+    <div class="time-axis-line" style="border-left: none;margin-top: 50px"></div>
+    <div class="time-axis-line" style="border-top: none;border-right: none">
+        <div class="trangel"></div>
+    </div>
+    &lt;!&ndash; <div class="time-axis-line" style="border-top: none;border-left: none"></div>
+     <div class="time-axis-line" style="border-top: none;border-right: none"></div>
+     <div class="time-axis-line" style="border-top: none;border-left: none">
+         &lt;!&ndash;<div class="trangel"></div>&ndash;&gt;
+     </div>&ndash;&gt;
+
+
+</div>-->
+
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>杭州市是此次人才大战中率先起跑的城市，早在2017年4月 11日，杭州就印发了《杭州市新引进应届高学历毕业生生活补贴发放实施办法》。</p>
+        <p>西安、成都、武汉等二线城市步伐紧跟，尤其是西安，2017年下半年一口气推出了三个配套文件。 面对人才，这座古城一改往日低调，“服务质量看齐海底捞，政府公务员争做五星级店小二”，成为实至名归的网红城市。</p>
+        <p>过去半年里，十城陆续加入“混战”。南京新年伊始颁布一号公文，成为2018年“人才大战”的先行者。南昌是截至目前最后发布政策的城市，不过在它之后，还有7个省会城市没有加入这场“混战”。</p>
+    </div>
+</div>
+<!--人才新政地图-->
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center"><span
+                style="font-size: 26px;color: #666;">—— “抢人大战”的全国地图 ——</span></p>
+        <p class="caption" style="text-align: center; color: #999;">数据来源：各省市政府网站</p>
+    </div>
+</div>
+
+
+<div class="part-distance">
+    <div class="selectWrap">
+        <div class="hitDis"></div>
+        <div class="hitTime"></div>
+        <div class="byDistance">按省份</div>
+        <div class="pointerFrame">
+            <div class="pointer color2"></div>
+        </div>
+        <div class="byTime">按城市</div>
+    </div>
+</div>
+
+<!--省份地图-->
+<div class="map-wrap" style="position: relative;height: 800px;">
+    <div id="container" style="height: 800px;width:1200px;background:transparent;margin:20px 0 0;margin: 0 auto;position: absolute;    left: 50%;
+    margin-left: -600px; z-index: 2;display: block"></div>
+
+    <div class="citys_map"
+         style="height: 800px;width:1200px;background:transparent;margin:20px 0 0;margin: 0 auto;z-index: 1;display: none">
+        <img style="transform: scale(0.8) translateY(-20px);" src="images/citys_map.png" alt="" width="100%"
+             height="100%">
+        <div class="heihe-line"></div>
+        <div class="qinhuai-line1"></div>
+        <div class="qinhuai-line2"></div>
+
+
+        <div class="heihe-circle1"></div>
+        <div class="heihe-circle2"></div>
+        <div class="heihe-circle3"></div>
+
+        <div class="heihe-circle4"></div>
+        <div class="heihe-circle5"></div>
+        <div class="heihe-circle6"></div>
+
+    </div>
+</div>
+
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <!--<p class="subtitle" style="text-align: center"><span style="font-size: 26px;color: #666;">—— “抢人大战”的全国地图 ——</span></p>-->
+        <p class="caption" style=" color: #999;">
+            注释：地图仅标出37个省会城市、直辖市以及部分重要区域性经济城市的分布。其他已颁布人才政策的地级市，如淄博、牡丹江、滁州等，未纳入考虑。<br/>
+            *“黑河-腾冲”线又称“胡焕庸线”，是1935年著名地理学家胡焕庸所划定的假象分界线，大致划分了中国人口的区域分布。<br/>
+            *“秦岭-淮河分界线”，是中国南方和北方的地理分界线，此线的南面和北面，无论是自然条件、农业生产方式，还是地理风貌或是人民的生活习俗，都有明显的不同。
+        </p>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>从地理分布上看，参与“人才大战”的城市主要集中于 <span class="first">东三省、山东半岛及津京冀地区、泛长三角城市群以及珠三角城市群等七地</span>。在广袤的西南部，成都和重庆成为了仅有的“双子星”，它们的存在，让超过1／2的中国版图显得不至于太过安静。
+        </p>
+        <p>我们还特意标注了中国人口密度分割线黑河-腾冲线，
+            这条线在1935年被中国著名地理学家胡焕庸称为中国人口密度对比线，
+            该线以东地区汇聚了中国95%的人口。
+            然而我们发现，黑河-腾冲线西北侧的呼和浩特、鄂尔多斯以及银川也推出了人才新政，
+            这是否意味着，这场“大战”正在逐步打破中国城市发展与人口流动的旧平衡？</p>
+        <p>从地理人文上看，秦岭－淮河是中国南北方的分界线。<span class="first">这些颁布人才政策的城市，也奇妙地沿着秦岭-淮河线形成了完美的对称</span>。假如中国可以折叠，与山东半岛和京津冀地区重合的区域，正好是中部的三座省份城市：南昌、武汉与长沙，它们连成三角一体，都颁布了积极的人才政策。
+        </p>
+    </div>
+</div>
+
+
+<!--你在挑选城市，城市也在挑选你-->
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p class="subtitle"><span> 你选择城市，城市也选择你</span></p>
+        <!--<p class="caption">注：<span class="highlight">“通勤距离&通勤时间”</span>：此处是指根据滴滴出行平台上打车出行数据测算的上下班通勤距离和时间，即工作日06:00-10:00和16:00-21:00期间通过滴滴顺风车和专快车来往于住宅小区和商务楼宇的订单的平均距离及时间，数据统计周期为2017年11月。-->
+        </p>
+    </div>
+</div>
+
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center"><span
+                style="font-size: 26px;color: #666;">—— 24个城市的人才友好度 ——</span></p>
+        <p class="caption" style="text-align: center; color: #999;">数据来源：24个城市政府政策文件
+        </p>
+    </div>
+</div>
+<!--空白位置，待添加-->
+<div class="content-div" style="padding: 0;">
+    <div class="content-wrap">
+        <div class="currency-chart" style="height: 500px">
+            <img src="images/youhao.jpeg" alt="" width="100%" height="100%">
+        </div>
+    </div>
+</div>
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <!--<p class="subtitle" style="text-align: center"><span style="font-size: 26px;color: #666;">—— “抢人大战”的全国地图 ——</span></p>-->
+        <p class="caption" style="text-align: center; color: #999;">注释：通过对城市人才政策文件的量化赋分，对24个城市在不同人才类别上的友好度进行归类。
+        </p>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <p><span class="first">选择城市如同恋爱，在何处生活，是你与城市之间的一次双向选择。</span></p>
+        <p>郑洁（化名）两年前选择了“北漂”，彼时他从长沙的一所“211”高校毕业。
+            “当初选择北京主要出于职业考虑，资源都集中在北上广，二线城市没什么混的。”</p>
+        <p>
+            不过就在去年，他辞去了北京的工作，前往杭州创业，经营了一家小型的视频制作公司。他说，在北京每月三分之一的收入用来交租，生活仍然逼仄，空气污染也让他无法呼吸。相比之下，杭州更宜居，杭州政府对互联网内容产业的扶持，他看好杭州的市场。</p>
+        <p>“去北京是追求理想，但时间久了，我发现我更需要生活。”郑洁说。</p>
+        <p>那么，二线城市的生活到底如何？我们对24个城市的经济实力、科研潜力、居民购买能力、居民收入水平、常住人口和空气质量等六个维度，进行了一次综合考量。</p>
+    </div>
+</div>
+
+<!--24城市的六项宜居维度-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center;color: #666"><span>—— 24个城市的六项生活宜居指标 ——</span></p>
+        <p class="caption" style="text-align: center; color: #999;">数据来源：国家、省市统计局网站，非政府组织Greenpeace报告
+        </p>
+    </div>
+</div>
+<div class="part-top10">
+    <ul>
+    </ul>
+</div>
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <!--<p class="subtitle" style="text-align: center"><span>24个城市的六项生活宜居指标</span></p>-->
+        <p class="caption" style="color: #999;">
+            注释：六项维度的正式数据名称分别为：国内生产总值(GDP)、技术市场成交金额、社会消费品零售总额、居民可支配收入、常住人口数以及全年PM2.5平均浓度，综合来看，这六项数据可大致反映一座城市的宜居状况。
+
+        </p>
+    </div>
+</div>
+
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p><span class="first">在经济实力排名前十的城市中，武汉、杭州和南京的各项指标最为均衡。</span>
+            有趣的是，经济水平倒数第三的珠海，居民的收入水平和购买能力却遥遥领先，同样经济水平靠后的厦门和鄂尔多斯，居民的收入水平也跻身前十。</p>
+        <p>当你选中了心仪的城市，也要看看这座城市是否也欢迎你？</p>
+        <p>首先，我们使用自然语言处理的TF-IDF算法，分析了24个主要城市的政策文件，并对关键词的重要程度进行可视化，以此分析城市人才政策的核心信息。 <span class="first">不同城市的人才政策文件中提及的核心信息存在差异，也变相可以看出城市更偏好哪一类人才。</span>
+        </p>
+    </div>
+</div>
+<!--词云-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center;color: #666"><span>—— 24城市的人才政策词云 ——</span></p>
+        <p class="caption" style="text-align: center; color: #999;">数据来源：24个城市政府政策文件
+
+        </p>
+    </div>
+</div>
+<div class="content-div" style="padding-top: 0px; padding-bottom: 0px;">
+    <div class="content-wrap">
+        <div class="word-wrap" style="width: 100%;">
+            <div class="swiper-container swiper-container-horizontal" style="height: 600px;">
+                <div class="swiper-wrapper"
+                     style="transition-duration: 0ms; transform: translate3d(-3240px, 0px, 0px);">
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city1.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city2.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city3.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city4.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city5.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city6.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city7.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city8.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city9.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city10.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city11.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city12.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city13.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city14.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city15.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city16.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city17.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city18.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city19.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city20.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city21.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city22.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city23.png"
+                                                                          alt="#"></div>
+                    <div class="swiper-slide" style="width: 1080px;"><img style="width: 100%;" src="images/city24.png"
+                                                                          alt="#"></div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
+                     aria-disabled="false"></div>
+                <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"
+                     aria-disabled="false"></div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <!--<p class="subtitle" style="text-align: center"><span>24城市的人才政策词云</span></p>-->
+        <p class="caption" style=" color: #999;">
+            注释：为呈现主要差异，城市政策文本中的共有词语（如“人才”）已在前期剔除。此外，人才政策的实施办法等具体细则文件，因较难反映该城市政策文本的特征，故也未纳入分析。
+
+
+        </p>
+    </div>
+</div>
+
+
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p>其次，我们对城市人才政策的内容偏重进行分析，并按照指标体系进行赋分。</p>
+    </div>
+</div>
+
+
+<!--空白位置，待添加-->
+<!--<div class="content-div" style="padding: 0">-->
+<!--<div class="content-wrap">-->
+<!--<div class="currency-chart" style="height: 610px">-->
+<!--<img src="images/rencaibiaozhun.jpg" alt="" width="100%" height="100%" style="height: 760px">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p>此后，我们根据不同政策维度的资金补贴力度绘制了一张气泡图。气泡越大，说明城市在这一维度上资金补贴力度越大。</p>
+    </div>
+</div>
+
+<!--人才新政时间轴-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center;color: #666"><span>—— 24城市人才政策力度对比 ——</span></p>
+        <p class="caption" style="text-align: center;color: #999;">数据来源：24个城市政府政策文件
+        </p>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <div style="width: 800px;margin: 0 auto;" id="zhengceChart" class="zhengceChart"></div>
+    </div>
+</div>
+<!--人才新政时间轴-->
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <p class="caption" style="text-align: left;color: #999;">
+            注释：根据政策力度赋分指标计算所得，从内圈至外圈，分别为配套保障力度、落户政策力度、安居补贴力度、人才覆盖力度以及（总体）政策强度，后者由前四项加权所得。
+
+        </p>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>
+            <span class="first"> 在过去的媒体报道中，成都、西安、杭州似乎是人才大战中最活跃的城市，但实际上，他们并非是对人才资金补贴力度最大的城市</span>。相比之下，西北地区的三座城市呼和浩特、太原和银川投入了最多的资金，南昌、哈尔滨和郑州则是投入资金相对最少的城市。
+        </p>
+    </div>
+</div>
+
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle"><span> 为何会在2018年前后爆发“人才大战”？</span></p>
+        <!--<p class="caption">注：城市人才政策的总强度得分，是根据四个子维度的分数加权所得，包含人才覆盖度、安居补贴力度、落户政策力度、配套保障力度等</p>-->
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <p>根据国家统计局发布的《2018年4月份70个大中城市商品住宅销售价格变动情况》，北上广深的房价处于下跌趋势，而在24个已发布人才政策的二线城市中，有17个城市房价上涨。</p>
+        <p>不乏有人揣测，这背后隐藏的是一场浩浩荡荡的房地产“去库存”运动，毕竟人才落户后必将产生新的购房需求。</p>
+        <p>国家行政学院政治学教研部教授张国玉并不认同这种说法，他说：“‘人才大战’是经济新动能、人口老龄化、政策新调整、创新驱动发展战略四重要素在这一时空耦合的结果。”</p>
+        <p>我们收集了37个城市的统计数据，用机器学习去检验人们的说法，并尝试发掘额外规律。</p>
+        <p><span class="first">某种程度上，数据否认了“人才政策是为房地产去库存”的说法 。</span>详细地说，政策颁布上一年度的城市房地产开放数据（开发投资额与施工房屋面积），与人才政策力度之间并未发现统计上的相关。
+        </p>
+        <p>张国玉也表示，各个城市在发展定位和资源禀赋上存在先天差异，因此对人力资本的争夺需求既相似，又不同。</p>
+        <p>那么，城市的自身差异又是如何影响政策制定者颁布新政的？</p>
+    </div>
+</div>
+
+
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center;color: #666"><span>—— 城市特征与政策力度的相关性 ——</span></p>
+        <p class="caption" style="text-align: center;color: #999">数据来源：国家、省市统计局网站，24个城市政府政策文件
+        </p>
+    </div>
+</div>
+<!--空白位置，待添加-->
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <div class="currency-chart" style="height:500px">
+            <img src="images/sandian.png" alt="" width="100%" height="100%">
+            <div class="sandian-line1"></div>
+            <div class="sandian-line2"></div>
+            <div class="sandian-line3"></div>
+        </div>
+    </div>
+</div>
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <p class="caption" style="text-align: left;color: #999">注释：
+            左图：政策总体力度与城市常住人口密度正相关（r = .341）；中图：“高级特”人才引进力度与城市人口自然增长率之间负相关（r= -.537）；右图：落户政策力度与城市人口自然死亡率之间正相关（r= .394）。
+
+        </p>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <p>我们发现，<span class="first">人口越集中的城市，人才政策的力度也越大。</span></p>
+        <p>
+            中国社会科学院人口与劳动经济研究所研究员林宝认为，“人才争夺战与人口形势的变化关系密切”。人口红利是中国实现经济快速发展的重要原因，一些统计数据显示，近年来中国城市人口红利正在不断衰减。而过去享受了人口红利的城市，也不得不开始重视城市人口未来的养老、医疗等负担问题。</p>
+        <p>城市要实现可持续发展，人口增长固然重要，同时也应关注到人口的创新价值。数据发现24个城市人才政策中，五类城市数据与创新创业扶持力度之间存在负相关。</p>
+    </div>
+</div>
+
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center;color: #666"><span>—— 五类城市数据与创新创业扶持力度的相关性 ——
+</span></p>
+        <p class="caption" style="text-align: center;color: #999">数据来源：国家、省市统计局网站，24个城市政府政策文件
+        </p>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="currency-chart" style="height: 570px">
+            <!--<img src="images/blockImg.png" alt="" width="100%" height="100%">-->
+
+            <div class="block_wrap">
+                <div class="left-top">
+                    <span>创业创新扶持力度</span>
+                    <div class="trangel2"></div>
+                </div>
+
+                <div class="div1">城市年度货运量</div>
+                <div class="div6">常住人口数</div>
+                <div class="div3">房地产施工房屋面积</div>
+                <div class="div4">房地产开发投资额</div>
+                <div class="div5">高校毕业生数</div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <p class="caption" style="text-align: left;color: #999">注释：五类统计数据及其相关系数分别为：城市年度货运量（ r= -.576）, 高校毕业生数（r= -.483）,
+            房地产开发投资额 (r= -.508), 房地产开发企业施工房屋面积(r= -.513)和常住人口(r= -.544)。
+        </p>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle"><span> 如何检验人才新政的成效？</span></p>
+        <!--<p class="caption">注：城市人才政策的总强度得分，是根据四个子维度的分数加权所得，包含人才覆盖度、安居补贴力度、落户政策力度、配套保障力度等</p>-->
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>“抢人大战”方兴未艾，国内主流媒体纷纷开始质疑，城市的“人才大战”可能沦为一场人才的“抢户口大战”。5月底，发改委也即时回应“要引人引智，也要用人留人”。</p>
+        <p>我们也很好奇，这些城市是否如其所愿，吸引大量人才落户？到底有多少能够真正为城市所用？</p>
+        <p>我们通过采集24个城市2000年至2016年的人口数据，并对2017年和2018年的城市户籍人口数进行灰色模型预测。预测的数值，是假设在没有刺激性政策的前提下，城市户籍人口应达到的数量。</p>
+        <p>简单的说，<span class="first">如果届时政府公布的城市户籍人口数量，没有显著超过我们给出的“及格线”，就可以视为政策失灵，当地的落户人数并没有在政策的刺激下实现增长。</span></p>
+
+    </div>
+</div>
+<!--
+<div class="content-div">
+    <div class="content-wrap">
+
+        <div class="chart-wrap">
+            <div id="cityChart" class="chart">我是图表</div>
+            <div class="chart-tips">
+                xxx的友好型
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                xxx的友好型
+            </div>
+        </div>
+    </div>
+    <br style="clear: both">
+</div>-->
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center;color: #666"><span>—— 24个城市的人口预测 ——
+
+</span></p>
+        <p class="caption" style="text-align: center;color: #999">数据来源：国家、省市统计局网站
+
+        </p>
+    </div>
+</div>
+
+<div class="content-div" style="height: 800px;">
+    <div class="content-wrap" style="height: 800px;">
+        <div class="currency-chart" style="height: 800px;">
+            <div style="width: 1000px;height:800px; margin: 0 auto;" id="renkouChart" class="renkouChart"></div>
+        </div>
+    </div>
+</div>
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <p class="caption" style="text-align: left;color: #999">
+            注释：根据2000年至2016年的城市户籍人口和常住人口数据，我们对城市在2017年和2018年的户籍人口数和常住人口数进行了预测（灰色块数值）。其中，成都、南昌、太原、长春、合肥五个城市在近十年内的人口增长规律较为复杂，预测模型拟合不佳，未呈现其预测结果。
+        </p>
+    </div>
+</div>
+<!--<div class="content-div">-->
+<!--<div class="content-wrap">-->
+<!--&lt;!&ndash;<p class="subtitle"><span>如何检验人才新政的成效</span></p>&ndash;&gt;-->
+<!--<p class="caption">注：数据来自地方统计局公布自2000年至2016年的城市户籍人口和常住人口数据，基于此，我们对城市在2017年和2018年的户籍人口数和常住人口数进行了预测</p>-->
+<!--</div>-->
+<!--</div>-->
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>此外，城市户口数量的增加，无法证明城市“留住了人”。因此，比较政策颁布后下一年的城市户籍人口增长率与常住人口增长率的同比增量，更能反映出有多少人真实地留在了当地生活或工作。</p>
+        <p>如果我们发现，<span class="first">城市在颁布人才政策后，户籍人口的同比增长率远高于常住人口的增长率，则大概率说明，获得该市户籍的人才并未真正留在此处工作生活。</span></p>
+    </div>
+</div>
+<div class="content-div" style="padding-bottom: 0">
+    <div class="content-wrap">
+        <p class="subtitle" style="text-align: center;color: #666"><span>—— 24个城市户籍／常住人口年均增长率（近三年） ——
+
+
+</span></p>
+        <p class="caption" style="text-align: center;color: #999">数据来源：国家、省市统计局网站
+
+
+        </p>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="currency-chart" style="height:800px;">
+            <div style="width: 1000px;height:800px; margin: 0 auto;" id="changzhuChart" class="changzhuChart"></div>
+        </div>
+    </div>
+</div>
+<div class="content-div" style="padding: 0">
+    <div class="content-wrap">
+        <p class="caption" style="text-align: left;color: #999">注释：根据24个城市的2014-2016年户籍人口和常住人口的年同比增长率加权得出。
+        </p>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <p>最后，让我们撇开繁杂的统计数据，来听听不同城市的八个年轻人的故事和想法吧。</p>
+    </div>
+</div>
+<div class="content-div" style="padding-top: 0; padding-bottom: 0">
+    <div class="content-wrap">
+        <!--style="border: 1px solid #d5d5d5"-->
+        <p>
+            <video class="video" src="images/rencai.mp4" poster="images/poster2.jpeg" id="video1" width="100%"
+                   webkit-playsinline playsinline="true" preload="auto"></video>
+        </p>
+
+    </div>
+</div>
+<div class="content-div">
+    <div class="credit content-wrap">
+        <p style="border-top: #cecece 1px solid;width: 100%"></p>
+        <p>
+            指导老师：Jonathan Zhu（祝建华教授）<br/>
+            策划：段泽宁<br/>
+            数据分析：周秦，段泽宁，金霖峰<br/>
+            文字：孙凌奕<br/>
+            网页原型与美工：何林津<br/>
+            网页制作：牛志勇<br/>
+            视频剪辑：金霖峰<br/>
+            协助：王羽鹏，焦文，王羽佳
+            邹祖铭，杨谨菡
+
+            <!--指导老师：Jonathan Zhu（祝建华教授）<br/>-->
+            <!--策划：段泽宁 <br/>-->
+            <!--数据分析：周秦，段泽宁，金霖峰<br/>-->
+            <!--文字：孙凌奕<br/>-->
+            <!--网页原型与美工：何林津，王羽鹏<br/>-->
+            <!--网页制作：牛志勇，焦文<br/>-->
+            <!--视频剪辑：金霖峰，邹祖铭<br/>-->
+            <!--<p class="mobile-only" style="text-align:center"><img src="images/qr.png" width="50%"></p>-->
+    </div>
+</div>
+
+<div class="fotter" style="width: 100%;height: 120px;background: #89bdd3">
+    <div style="width: 1200px;height: 120px;margin: 0 auto">
+        <img src="images/logo.jpeg" alt=" " style="width: 80px;height: 80px;margin-top: 20px;">
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: true,
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    })
+
+
+    $(".cover").find(".sub-title").find("p").each(function () {
+        var coverIndex = $(this).index();
+        var time = coverIndex * 1000 + 500;
+        setTimeout(function () {
+            $(".cover").find(".sub-title").find("p").eq(coverIndex).fadeIn(1000)
+        }, time);
+
+    });
+
+
+    /*、
+    *    <div class="heihe-line"></div>
+        <div class="qinhuai-line1"></div>
+        <div class="qinhuai-line2"></div>
+
+
+        <div class="heihe-circle1"></div>
+        <div class="heihe-circle2"></div>
+        <div class="heihe-circle3"></div>
+
+        <div class="heihe-circle4"></div>
+        <div class="heihe-circle5"></div>
+        <div class="heihe-circle6"></div>
+    *
+    * */
+
+
+    $(".byDistance, .hitDis").click(function () {
+        //按钮切换
+        $(".pointer").animate({left: 0}, 500).removeClass("color1").addClass("color2");
+        $(".map-wrap #container").animate({
+            opacity: 1,
+            // display: "block",
+            // 'display':'block',
+            "z-index": 2,
+            // visibility: "visible"
+        }, 500).css('display', 'block');
+        $(".map-wrap .citys_map").animate({
+            opacity: 0,
+            // 'display': "none",
+            "z-index": 1,
+            // visibility: "hidden"
+        }, 500).css('display', 'none');
+
+        //heihe-circle2
+
+        $(".map-wrap .citys_map .heihe-circle2").css('transform', 'rotate(-63deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle1").css('transform', 'rotate(-30deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle3").css('transform', 'rotate(15deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle4").css('transform', 'rotate(-12deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle5").css('transform', 'rotate(13deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle6").css('transform', ' rotate(-92deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-line").css('transform', 'rotate(-45deg) scale(0)');
+
+        $(".map-wrap .citys_map .qinhuai-line1").css('width', '0');
+
+    });
+
+    $(".byTime, .hitTime").click(function () {
+
+        //按钮切换
+        $(".pointer").animate({left: 30}, 500).removeClass("color2").addClass("color1");
+        //地图切换
+        $(".map-wrap #container").animate({
+            opacity: 0,
+            // 'display': "none",
+            "z-index": 1,
+            // visibility: "hidden"
+
+        }, 500).css('display', 'none');
+        $(".map-wrap .citys_map").animate({
+            opacity: 1,
+            // 'display': "block",
+            // visibility: "visible",
+            "z-index": 2
+        }, 500).css('display', 'block');
+
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle2").fadeIn(1000).css('transform', 'rotate(-63deg) scale(1)');
+        }, 500)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle1").fadeIn(1000).css('transform', 'rotate(-30deg) scale(1)');
+        }, 1000)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle3").fadeIn(1000).css('transform', 'rotate(15deg) scale(1)');
+        }, 1500)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle4").fadeIn(1000).css('transform', 'rotate(-12deg) scale(1)');
+        }, 2000)
+
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle5").fadeIn(1000).css('transform', 'rotate(-92deg)  scale(1)');
+        }, 2500)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle6").fadeIn(1000).css('transform', ' rotate(13deg)  scale(1)');
+        }, 3000)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-line").fadeIn(1000).css('transform', 'rotate(-45deg) scale(1)');
+        }, 3500)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .qinhuai-line1").fadeIn(1000).css('width', '210px');
+        }, 4000)
+
+
+    });
+
+
+    $(".content-wrap p").find(".first").bind("mouseover", function () {
+        console.log("123123", $(this).index());
+
+        $(this).animate({
+            color: "#88b8d6"
+        }, 1000);
+    });
+
+    $(".content-wrap p").find(".first").bind(" mouseout", function () {
+        console.log("123123", $(this).index());
+
+        $(this).animate({
+            // backgroundColor: "transparent"
+            color: "#000"
+        }, 1000);
+    });
+    $(".content-wrap p").find(".first").css({
+        "color": "white",
+        "background-color": "#98bf21",
+        "font-family": "Arial",
+        "font-size": "20px",
+        "padding": "5px"
+    });
+
+    $(".wrapewwe").click(function () {
+        console.log(' $(window).height()', $(window).height());
+        var t = $(document).scrollTop();
+        $('body,html').animate({'scrollTop': t + 1000}, 2000)
+    });
+
+
+    // //词云
+    // for (var z = 0; z < 24; z++) {
+    //     var num = Number(z) + 1;
+    //     console.log('num',num);
+    //     if (z > 0) {
+    //         $(".content-wrap .word-wrap .shutter .shutter-img").append("  <a href=\"#\" data-shutter-title=\"Iron Man\"><img src=\"images/city" + num + ".png\" alt=\"#\"></a>")
+    //     }
+    // }
+    $(document).scroll(function () {
+
+        var top = $(document).scrollTop();
+
+        console.log('top', top);
+        console.log(' $(window).height() ', $(window).height());
+        console.log(' $(window).height() + 100', $(window).height() + 100);
+        console.log('top > $(window).height() + 100 && drawRadiusFlag == 0', top > $(window).height() + 100 && drawRadiusFlag == 0);
+
+        //time-axis-wrap time-axis-detail
+        // if (top >= 780) {
+        //     $('.time-axis-wrap').find('.time-axis-detail').each(function () {
+        //         var axisIndex = $(this).index();
+        //         var time = ((axisIndex) * 200) + 100;
+        //         setTimeout(function () {
+        //             $('.time-axis-wrap').find('.time-axis-detail').eq(axisIndex).fadeIn(300)
+        //         }, time);
+        //
+        //     });
+        // }
+
+        // if(top > 665){
+        //     $(".content-wrap p").find(".first1").animate({
+        //         backgroundColor: "#999",
+        //         color: "#fff"
+        //     }, 1000);
+        // }
+
+        if (top > 1140) {
+            // iv class="content-div">
+            //     <div class="content-wrap">
+            //     <p class="subtitle"><span class="blue1">人才大战的时间与空间</span></p>
+            // </div>
+            // $(".content-wrap p").find(".blue1").animate({
+            //     backgroundColor: "#84acd3",
+            //     // color: "#fff"
+            // }, 1000);
+
+
+        }
+
+        if (top >= 780) {
+            $('.time-axis-wrap1').find('.time-axis-detail1').each(function () {
+                var axisIndex = $(this).index();
+                var time = ((axisIndex) * 200) + 100;
+                setTimeout(function () {
+                    $('.time-axis-wrap1').find('.time-axis-detail1').eq(axisIndex).css({visibility: "visible"})
+                }, time);
+
+            });
+        }
+        if (top >= 10440) {
+            setTimeout(function () {
+                $('.content-wrap .currency-chart .sandian-line1').fadeIn(1000).css({width: "310px"})
+            }, 500);
+            setTimeout(function () {
+                $('.content-wrap .currency-chart .sandian-line2').fadeIn(1000).css({width: "337px"})
+            }, 1000);
+            setTimeout(function () {
+                $('.content-wrap .currency-chart .sandian-line3').fadeIn(1000).css({width: "337px"})
+            }, 1500);
+        }
+        //    content-wrap .currency-chart .sandian-line3
+    })
+    ;
+
+
+    // //轮播图
+    // setTimeout(function () {
+    //     $('.content-wrap .word-wrap .shutter').shutter({
+    //         shutterW: 1200, // 容器宽度
+    //         shutterH: 530, // 容器高度
+    //         isAutoPlay: true, // 是否自动播放
+    //         playInterval: 2000, // 自动播放时间
+    //         curDisplay: 3, // 当前显示页
+    //         fullPage: false // 是否全屏展示
+    //     });
+    // },1000);
+    // $(function () {
+    //     $('.content-wrap .word-wrap .shutter').shutter({
+    //         shutterW: 1200, // 容器宽度
+    //         shutterH: 530, // 容器高度
+    //         isAutoPlay: true, // 是否自动播放
+    //         playInterval: 1000, // 自动播放时间
+    //         curDisplay: 3, // 当前显示页
+    //         fullPage: false // 是否全屏展示
+    //     });
+    // });
+
+    //视频播放
+    $("#video1").click(function () {
+        if (document.getElementById("video1").paused) {
+            //console.log("play")
+            document.getElementById("video1").play();
+            document.getElementById("video1").controls = "controls"
+        }
+        else {
+            //console.log("pause")
+            document.getElementById("video1").pause()
+
+        }
+    });
+</script>
+<script type="text/javascript">
+
+    var city = [
+        "合肥",
+        "武汉",
+        "南京",
+        "重庆",
+        "天津",
+        "厦门",
+        "珠海",
+        "成都",
+        "长沙",
+        "西安"
+    ];
+
+    // 基于准备好的dom，初始化echarts实例
+    var app = echarts.init(document.getElementById('changzhuChart'));
+    // 指定图表的配置项和数据
+    var posList = [
+        'left', 'right', 'top', 'bottom',
+        'inside',
+        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+    ];
+
+    app.configParameters = {
+        rotate: {
+            min: -90,
+            max: 90
+        },
+        align: {
+            options: {
+                left: 'left',
+                center: 'center',
+                right: 'right'
+            }
+        },
+        verticalAlign: {
+            options: {
+                top: 'top',
+                middle: 'middle',
+                bottom: 'bottom'
+            }
+        },
+        position: {
+            options: echarts.util.reduce(posList, function (map, pos) {
+                map[pos] = pos;
+                return map;
+            }, {})
+        },
+        distance: {
+            min: 0,
+            max: 100
+        }
+    };
+
+    app.config = {
+        rotate: 90,
+        align: 'left',
+        verticalAlign: 'middle',
+        position: 'insideBottom',
+        distance: 15,
+        onChange: function () {
+            var labelOption = {
+                normal: {
+                    rotate: app.config.rotate,
+                    align: app.config.align,
+                    verticalAlign: app.config.verticalAlign,
+                    position: app.config.position,
+                    distance: app.config.distance
+                }
+            };
+            myChart.setOption({
+                series: [{
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }]
+            });
+        }
+    };
+
+
+    var labelOption = {
+        normal: {
+            show: true,
+            position: app.config.position,
+            distance: app.config.distance,
+            align: app.config.align,
+            verticalAlign: app.config.verticalAlign,
+            rotate: app.config.rotate,
+            // formatter: '{c}  {name|{a}}',
+            fontSize: 16,
+            rich: {
+                name: {
+                    textBorderColor: '#fff'
+                }
+            }
+        }
+    };
+
+    option = {
+        color: [' #88b8d6', '#d48265'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: ['常住', '户籍']
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: {show: false},
+                data: [
+                    "合肥",
+                    "武汉",
+                    "南京",
+                    "重庆",
+                    "天津",
+                    "厦门",
+                    "珠海",
+                    "成都",
+                    "长沙",
+                    "西安"
+                ]
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: '百分比（%）'
+            }
+        ],
+        series: [
+            {
+                name: '常住',
+                type: 'bar',
+                barGap: 0,
+                label: labelOption,
+                data: [
+                    1.13,
+                    1.75,
+                    0.33,
+                    0.87,
+                    2.00,
+                    1.67,
+                    1.75,
+                    3.68,
+                    1.92,
+                    0.94
+                ]
+            },
+            {
+                name: '户籍',
+                type: 'bar',
+                label: labelOption,
+                data: [
+                    0.85,
+                    0.48,
+                    1.01,
+                    0.33,
+                    1.33,
+                    3.87,
+                    1.87,
+                    5.75,
+                    1.64,
+                    0.74
+                ]
+            },
+        ]
+    };
+    app.setOption(option);
+</script>
+<!--人口预测图表-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts实例
+    var app = echarts.init(document.getElementById('renkouChart'));
+    app.title = '人口预测数据';
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            data: ['2016', '2017', '2018']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+
+        // xAxis: {
+        //     type: 'category',
+        //     data: [
+        //         '西安', '\n杭州', '长沙', '\n成都', '广州', '\n海口', '南昌', '\n珠海', '鄂尔多斯', '\n厦门', '天津', '\n重庆',
+        //         '沈阳', '\n南京', '武汉', '\n石家庄', '太原', '\n长春', '哈尔滨', '\n福州', '济南', '\n郑州', '合肥',
+        //     ]
+        // },
+        xAxis: [
+            {
+                'type': 'category',
+                'axisLabel': {'interval': 0},
+                'data': [
+                    '西安', '\n杭州', '长沙', '\n成都', '广州', '\n海口', '南昌', '\n珠海', '鄂尔多斯', '\n厦门', '天津', '\n重庆',
+                    '沈阳', '\n南京', '武汉', '\n石家庄', '太原', '\n长春', '哈尔滨', '\n福州', '济南', '\n郑州', '合肥',
+                ],
+                splitLine: {show: false}
+            }
+        ],
+        yAxis: {
+            type: 'value',
+            show: false,
+        },
+        series: [
+            {
+                name: '2016',
+                type: 'bar',
+                stack: '总量',
+                color: '#88b8d6',
+                borderColor: '#88b8d6',
+                borderWidth: '#88b8d6',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight',
+                        textStyle: {
+                            color: '#88b8d6'
+                        }
+                    }
+                },
+                data: [
+                    8249300,
+                    7360000,
+                    6959998,
+                    13989297,
+                    8704901,
+                    1670344,
+                    5227900,
+                    1147765,
+                    1594396,
+                    2205489,
+                    10444000,
+                    33921100,
+                    7344000,
+                    6627900,
+                    8338400,
+                    10784600,
+                    4344400,
+                    7534000,
+                    9620500,
+                    6870600,
+                    7233100,
+                    9724000,
+                    7298300,
+                ]
+            },
+            {
+                name: '2017',
+                type: 'bar',
+                stack: '总量',
+                color: '#d48265',
+                borderColor: '#d48265',
+                borderWidth: '#d48265',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight',
+                        textStyle: {
+                            color: '#d48265'
+                        }
+                    }
+                },
+                data: [
+                    8283248,
+                    7457649,
+                    7046037,
+                    0,
+                    8812029,
+                    1691786,
+                    0,
+                    1170411,
+                    1608500,
+                    2260910,
+                    10483343,
+                    34002161,
+                    7350939,
+                    6643642,
+                    0,
+                    10879900,
+                    0,
+                    0,
+                    9550000,
+                    6916919,
+                    7321200,
+                    9881000,
+                    0
+                ]
+            },
+            {
+                name: '2018',
+                type: 'bar',
+                stack: '总量',
+                color: '#c9c9c9',
+                borderColor: '#c9c9c9',
+                borderWidth: '#c9c9c9',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight',
+                        textStyle: {
+                            color: '#c9c9c9'
+                        }
+                    }
+                },
+                data: [
+                    8378121,
+                    7530710,
+                    7117777,
+                    0,
+                    8934351,
+                    1721050,
+                    0,
+                    1202013,
+                    1624477,
+                    2335090,
+                    10604011,
+                    34227449,
+                    7350939,
+                    6718998,
+                    0,
+                    11017847,
+                    0,
+                    0,
+                    9473432,
+                    6984090,
+                    7407200,
+                    10050193,
+                    0,
+                ]
+            },
+        ]
+    };
+    app.setOption(option);
+</script>
+<!--放射性饼状图-->
+<script type="text/javascript">
+    var days = ['配套保障', '落户政策力度', '安居补贴力度', '人才覆盖度', '政策强度'];
+
+    var hours = [
+        "天津", "重庆", "成都",
+        "武汉", "杭州", "南京",
+        "长沙", "郑州", "济南",
+        "合肥", "西安", "福州",
+
+        "哈尔滨", "长春", "石家庄",
+        "沈阳", "鄂尔多斯", "南昌",
+        "厦门", "呼和浩特", "太原",
+        "珠海", "银川", "海口"
+    ];
+    var data = [
+        [4, 0, 14],
+        [4, 1, 14],
+        [4, 2, 13],
+        [4, 3, 17],
+        [4, 4, 16],
+        [4, 5, 16],
+        [4, 6, 14],
+        [4, 7, 13],
+        [4, 8, 17],
+        [4, 9, 18],
+        [4, 10, 13],
+        [4, 11, 17],
+        [4, 12, 10],
+        [4, 13, 17],
+        [4, 14, 14],
+        [4, 15, 13],
+        [4, 16, 20],
+        [4, 17, 9],
+        [4, 18, 10],
+        [4, 19, 22],
+        [4, 20, 22],
+        [4, 21, 12],
+        [4, 22, 22],
+        [4, 23, 16],
+
+        [3, 0, 2],
+        [3, 1, 1],
+        [3, 2, 3],
+        [3, 3, 2],
+        [3, 4, 2],
+        [3, 5, 3],
+        [3, 6, 4],
+        [3, 7, 3],
+        [3, 8, 3],
+        [3, 9, 3],
+        [3, 10, 3],
+        [3, 11, 2],
+        [3, 12, 1],
+        [3, 13, 2],
+        [3, 14, 3],
+        [3, 15, 3],
+        [3, 16, 1],
+        [3, 17, 4],
+        [3, 18, 2],
+        [3, 19, 2],
+        [3, 20, 2],
+        [3, 21, 3],
+        [3, 22, 4], [1, 23, 2],
+
+        [2, 0, 8],
+        [2, 1, 10],
+        [2, 2, 6],
+        [2, 3, 10],
+        [2, 4, 11],
+        [2, 5, 9],
+        [2, 6, 7],
+        [2, 7, 6],
+        [2, 8, 10],
+        [2, 9, 10],
+        [2, 10, 8],
+        [2, 11, 11],
+        [2, 12, 4],
+        [2, 13, 10],
+        [2, 14, 8],
+        [2, 15, 7],
+        [2, 16, 10],
+        [2, 17, 4],
+        [2, 18, 5],
+        [2, 19, 13],
+        [2, 20, 12],
+        [2, 21, 5],
+        [2, 22, 12],
+        [2, 23, 9],
+
+        [1, 0, 4],
+        [1, 1, 4],
+        [1, 2, 2],
+        [1, 3, 4],
+        [1, 4, 4],
+        [1, 5, 0],
+        [1, 6, 5],
+        [1, 7, 1],
+        [1, 8, 6],
+        [1, 9, 6],
+        [1, 10, 3],
+        [1, 11, 3],
+        [1, 12, 4],
+        [1, 13, 4],
+        [1, 14, 0],
+        [1, 15, 12],
+        [1, 16, 9],
+        [1, 17, 5],
+        [1, 18, 2],
+        [1, 19, 6],
+        [1, 20, 6],
+        [1, 21, 0],
+        [1, 22, 0],
+        [1, 23, 5],
+
+        [0, 0, 4],
+        [0, 1, 7],
+        [0, 2, 6],
+        [0, 3, 4],
+        [0, 4, 3],
+        [0, 5, 4],
+        [0, 6, 5],
+        [0, 7, 5],
+        [0, 8, 5],
+        [0, 9, 4],
+        [0, 10, 2],
+        [0, 11, 4],
+        [0, 12, 3],
+        [0, 13, 4],
+        [0, 14, 3],
+        [0, 15, 4],
+        [0, 16, 6],
+        [0, 17, 4],
+        [0, 18, 4],
+        [0, 19, 6],
+        [0, 20, 6],
+        [0, 21, 5],
+        [0, 22, 6],
+        [0, 23, 4],
+    ];
+
+    // 基于准备好的dom，初始化echarts实例
+    var zhengceChart = echarts.init(document.getElementById('zhengceChart'));
+    // 指定图表的配置项和数据
+    var zhengceOption = {
+        // title: {
+        //     text: '城市政策力度对比',
+        //     // link: 'https://github.com/pissang/echarts-next/graphs/punch-card'
+        // },
+        legend: {
+            data: ['点击这里，了解政策力度'],
+            left: 'right',
+            textStyle: {
+                color: '#89bdd3',
+                fontSize: 20
+            },
+        },
+        polar: {},
+        tooltip: {
+            formatter: function (params) {
+                // return params.value[2] + ' commits in ' + hours[params.value[1]] + ' of ' + days[params.value[0]];
+            }
+        },
+        angleAxis: {
+            type: 'category',
+            data: hours,
+            boundaryGap: false,
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#ddd',
+                    type: 'dashed'
+                }
+            },
+            axisLine: {
+                show: false
+            }
+        },
+        radiusAxis: {
+            type: 'category',
+            data: days,
+            axisLine: {
+                show: false
+            },
+            axisLabel: {
+                rotate: 45
+            }
+        },
+        series: [{
+            name: '点击这里，了解政策力度',
+            type: 'scatter',
+            color: '#89bdd3',
+            borderColor: '#89bdd3',
+            borderWidth: '#89bdd3',
+            textStyle: {
+                color: '#89bdd3',
+                fontSize: 14
+            },
+            coordinateSystem: 'polar',
+            symbolSize: function (val) {
+                return val[2] * 2;
+            },
+            data: data
+        }]
+    };
+
+    zhengceChart.setOption(zhengceOption);
+</script>
+<!--链式连接线图-->
+<script type="text/javascript">
+    //前24名排名Chart
+    var top10 = [
+        ["GDP", "天津", "重庆", "成都", "武汉", "杭州", "南京", "长沙", "郑州", "济南", "合肥", "西安", "福州", "哈尔滨", "长春", "石家庄", "沈阳", "鄂尔多斯", "南昌", "厦门", "呼和浩特", "太原", "珠海", "银川", "海口"],
+        ["科研潜力", "西安", "武汉", "天津", "成都", "重庆", "南京", "沈阳", "郑州", "合肥", "太原", "长春", "哈尔滨", "杭州", "厦门", "济南", "南昌", "长沙", "石家庄", "珠海", "福州", "海口", "呼和浩特", "鄂尔多斯", "银川"],
+        ["购买力", "珠海", "成都", "武汉", "杭州", "南京", "长沙", "沈阳", "济南", "福州", "哈尔滨", "西安", "郑州", "石家庄", "长春", "合肥", "重庆", "南昌", "太原", "呼和浩特", "天津", "厦门", "鄂尔多斯", "海口", "银川"],
+        ["收入水平", "杭州", "南京", "长沙", "珠海", "厦门", "武汉", "济南", "天津", "鄂尔多斯", "呼和浩特", "成都", "福州", "沈阳", "合肥", "郑州", "西安", "南昌", "哈尔滨", "太原", "长春", "海口", "石家庄", "银川", "重庆"],
+        ["常住人口", "重庆", "成都", "天津", "石家庄", "武汉", "郑州", "哈尔滨", "杭州", "西安", "沈阳", "南京", "合肥", "长沙", "福州", "长春", "济南", "南昌", "太原", "厦门", "呼和浩特", "海口", "银川", "鄂尔多斯", "珠海"],
+        ["空气质量", "海口", "鄂尔多斯", "厦门", "福州", "珠海", "南昌", "南京", "呼和浩特", "杭州", "重庆", "银川", "长春", "沈阳", "武汉", "长沙", "成都", "合肥", "哈尔滨", "天津", "太原", "济南", "郑州", "西安", "石家庄"],
+    ];
+
+
+    var topLine1 = [];
+    var topLine2 = [];
+    var topLine3 = [];
+    var topLine4 = [];
+    var topLine5 = [];
+
+    var top10RowHeight = 37;
+    var ul = $("<ul></ul>");
+    $(".part-top10").append(ul);
+    for (var i = 0; i < 25; i++) {
+        if (i == 0) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li></li>");
+        // else if (i == 1) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li><span>" + i + "</span></li>");
+        else $(".part-top10").find("ul").eq(0).addClass("rank").append("<li>" + i + "</li>")
+    }
+    for (var col = 0; col < 6; col++) {
+        var ul = $("<ul></ul>");
+        $(".part-top10").append(ul);
+        $(".part-top10").find("ul").eq(col + 1).addClass("col" + (col + 1));
+        for (var i = 0; i < 25; i++) {
+            if (i > 0) {
+                var li = $(".part-top10").find("ul").eq(col + 1).append("<li class='topCity'><span class='topCityAll topCity-" + top10[col][i] + "'>" + top10[col][i] + "</span></li>")
+            }
+            else {
+                li = $(".part-top10").find("ul").eq(col + 1).append("<li><span>" + top10[col][i] + "</span></li>")
+            }
+
+        }
+    }
+
+    var svgTop10 = d3.select(".part-top10")
+        .append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .style("position", "absolute")
+        .style("top", 0)
+        .style("left", 0)
+        .style("z-index", -1);
+
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[0][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[1][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine1.push([array, city])
+    }
+    // var matrix3x3x3x3x3 = [];
+    // for (var i = 0; i < matrix3x3x3x3x3.length; i++) {
+    //     alert(1);
+    //     for (var j = 0; j < matrix3x3x3x3x3[i].length; j++) {
+    //         for (var z = 0; z < matrix3x3x3x3x3[i][j].length; z++) {
+    //             for (var k = 0; k < matrix3x3x3x3x3[i][j][z].length; k++) {
+    //                 for (var s = 0; s < matrix3x3x3x3x3[i][j][z][k].length; s++) {
+    //                     matrix3x3x3x3x3[i][j][z][k][s] = i + j + z + k + s;
+    //                     console.log(matrix3x3x3x3x3[i][j][z][k][s]);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    // var matrix3x3x3 = [];
+    // for (var i = 0; i < matrix3x3x3.length; i++) {
+    //     for (var j = 0; j < matrix3x3x3[i].length; j++) {
+    //         for (var z = 0; z < matrix3x3x3[i][j].length; z++) {
+    //             console.log(i + j + z);
+    //         }
+    //     }
+    // }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[1][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[2][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine2.push([array, city])
+    }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[2][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[3][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine3.push([array, city])
+    }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[3][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[4][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine4.push([array, city])
+    }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[4][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[5][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine5.push([array, city])
+    }
+
+    var lineTop1 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 1) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+
+    var lineTop2 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 2) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop3 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 3) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop4 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 4) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop5 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 5) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+
+    for (var i = 0; i < topLine1.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop1(topLine1[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine1[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine2.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop2(topLine2[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine2[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine3.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop3(topLine3[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine3[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine4.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop4(topLine4[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine4[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine5.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop5(topLine5[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine5[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+
+
+    $(".part-top10").find(".topCity").bind("mouseover", function () {
+        $(".topCityAll").removeClass("chosen");
+        d3.selectAll(".topLineAll").style("opacity", 0);
+
+        var city = $(this).find("span").html();
+        $(".topCity-" + city).addClass("chosen");
+        d3.selectAll(".topLine-" + city).style("opacity", 1);
+        if (top10Init == 0) {
+            $(".topCity-天津").removeClass("chosen");
+            d3.selectAll(".topLine-天津").style("opacity", 0);
+            top10Init = 1
+        }
+        if (top10Init == 1) {
+            $(".topCity-天津").removeClass("chosen");
+            d3.selectAll(".topLine-天津").style("opacity", 0);
+            top10Init = 2
+        }
+    });
+    var top10Init = 0;
+    $(".topCity-天津").addClass("chosen");
+    d3.selectAll(".topLine-天津").style("opacity", 1);
+</script>
+<!--省份地图-->
+<script type="text/javascript">
+    // 全国省份列表
+    var dataMap = [
+        {name: '北京'}, {name: '天津'}, {name: '上海'},
+        {name: '重庆'}, {name: '河北'}, {name: '河南'},
+        {name: '云南'}, {name: '辽宁'}, {name: '黑龙江'},
+        {name: '湖南'}, {name: '安徽'}, {name: '山东'},
+        {name: '新疆'}, {name: '江苏'}, {name: '浙江'},
+        {name: '江西'}, {name: '湖北'}, {name: '广西'},
+        {name: '甘肃'}, {name: '山西'}, {name: '内蒙古'},
+        {name: '陕西'}, {name: '吉林'}, {name: '福建'}, {name: '贵州'},
+        {name: '广东'}, {name: '青海'}, {name: '西藏'},
+        {name: '四川'}, {name: '宁夏'}, {name: '海南'},
+        {name: '台湾'}, {name: '香港'}, {name: '澳门'}]
+    // 需要在页面上直接标记出来的城市
+    var specialMap = ['浙江', '云南', '陕西'];
+    // 对dataMap进行处理，使其可以直接在页面上展示
+    for (var i = 0; i < specialMap.length; i++) {
+        for (var j = 0; j < dataMap.length; j++) {
+            if (specialMap[i] == dataMap[j].name) {
+                dataMap[j].selected = true;
+                break;
+            }
+
+        }
+    }
+    // 绘制图表，准备数据
+    var option = {
+        tooltip: {
+            formatter: function (params) {
+                if (params.name == '河北') {
+                    var content = '抹开面子抢人才。冀重点争夺京津人才， 成为石家庄人才新政的最大看点。<br> 2018年4月8日，石家庄市委、市政府颁布《关于实施现代产业人才集聚工程的若干措施》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '山西') {
+                    var content = '太原重视“晋商精神”，力促推动晋商、晋才回乡创新创业。<br> 2018年2月3日，中共太原市委颁布《中共太原市委关于深化人才发展体制机制改革加快推进创新驱动转型升级的实施意见》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '辽宁') {
+                    var content = '沈阳新政推出巨额补贴，跻身东三省中补贴力度最大的城市。<br>2017年12月28日，中共沈阳市委、市政府颁布《沈阳市建设创新创业人才高地的若干政策措施》，<br>并于2018年4月24 日推出《沈阳市建设创新创业人才高地的若干政策措施的补充意见》（俗称“沈阳新政24条”）。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '吉林') {
+                    var content = '长春市委、市政府齐“背书”，为人才吸引战略投资者，建立天使投资基金。<br>2018年1月4日，中共长春市委组织部发布《关于进一步集聚人才创新发展的若干意见》（俗称“长春人才新政25条”）';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '黑龙江') {
+                    var content = '“去了就落户”。哈尔滨成为东三省人才落户门槛最低的城市。<br> 2017年5月2日，哈尔滨市政府颁布《关于印发哈尔滨英才集聚计划实施方案的通知》，<br></br>并于同年12月13日，推出《关于进一步吸引培养人才支持重点产业发展的若干政策》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+
+                if (params.name == '江苏') {
+                    var content = '党政一号文同步发出，南京率先打响了2018人才大战第一枪。<br>2017年4月24日，南京市人民政府颁布《关于印发人才安居办法（试行）的通知》，<br></br>2018年1月4日，又推出《南京市政府关于进一步加强人才安居工作的实施意见》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '安微') {
+                    var content = '目标不小，合肥五年内要实现百万人才在肥安居乐业。<br>2017年6月20日，中共合肥市委、市政府颁布《合肥市人民政府关于建设合肥综合性国家科学中心打造创新之都人才工作的意见》，<br>同年12月29日，市人社局发布《合肥市“鸿雁计划”实施细则（暂行）》等三个文件，2018年4月26日市人社局又推出《关于进一步支持人才来肥创新创业的若干政策》';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '福建') {
+                    var content = '福州率先提出要优先照顾贫困/特困/残疾/少数民族等重点群体的理念，颇具人文情怀。<br>2018年4月18日，福州市政府印发《关于鼓励引进高层次人才的八条措施的通知》，同年5月10日，<br>市人社局发布《福州市高校毕业生就业创业扶持政策清单》（俗称”高层次人才八条措施“）。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+                if (params.name == '山东') {
+                    var content = '体制内人才无忧，济南为人才保留原事业编制，并提供相应编制待遇。<br>2017年5月22日，中共济南市委印发《关于深化人才发展体制机制改革促进人才创新创业的实施意见》<br>（俗称“济南人才新政30条”）';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '河南') {
+                    var content = '郑州推动人才回灌，并发挥人口大省优势，着重加强与在外豫籍人才的对接。<br>2017年11月24日，中共郑州市委印发《中共郑州市委郑州市人民政府关于实施“智汇郑州”人才工程加快推进国家中心城市建设的意见》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '湖北') {
+                    var content = '武汉成为大学生最友好的中部城市——落户门槛低，买房打八折。<br>2017年6月14日，武汉市委、市政府颁布《关于支持百万大学生留汉创业就业的若干政策措施》，<br>同年10月12日，市委办公厅、市政府办公厅联合各市级单位推出一系列细则文件，包含《武汉进一步放宽留汉大学毕业生落户试行政策的通知》、<br>《关于发布武汉市大学毕业生在汉工作指导性最低年薪标准的通知》、《关于加强大学毕业生安居保障 的实施意见（试行）》等。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+
+                if (params.name == '湖南') {
+                    var content = '长沙提供人才金融服务与担保。<br>2017年6月21日，中共长沙市委、市政府推出《关于长沙市建设创新创业人才高地的若干措施》（俗称“长沙人才新政22条”）';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '四川') {
+                    var content = '成都为人才设立纪念日，每年4月最后一周的星期六定为“蓉漂人才日”。<br>2017年7月21日，中共成都市委、市政府推出《成都实施人才优先发展战略行动计划》（俗称“成都人才新政12条”）';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '陕西') {
+                    var content = '“出站下车就落户，来了就是西安人”，西安成为新一轮人才大战的领军城市。<br>2017年5月8日，中共西安市委、市政府发布《西安市深化人才发展体制机制改革打造“一带一路”人才高地若干政策措施》<br>（俗称“西安新政13条”），同年12月11日，发布《西安市人民政府办公厅关于进一步鼓励吸引高校毕业生在西安就业创业的意见》，<br>2018年5月8日，西安市人社局、财政局推出《关于印发西安市进一步加快人才汇聚若干措施的通知》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+
+                if (params.name == '广东') {
+                    var content = '面向特区，珠海大力支持澳门、香港人才来珠创新创业。<br>2018年4月23日，中共珠海市委、市政府发布《关于实施“珠海英才计划”加快集聚新时代创新人才的若干措施》（俗称“珠海人才新政16条”）。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '江西') {
+                    var content = '啥都有！南昌推出最全面人才政策。<br>2018年5月8日，中共南昌市委、市政府发布《南昌关于实施“天下英雄城聚天下英才”行动计划的意见》（俗称“南昌人才新政22条”）。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '重庆') {
+                    var content = '掌握核心科技，重庆大力吸收基础/应用/研发类科技人才。<br>2017年4月12日.重庆市政府发布《重庆市人民政府关于印发重庆市引进海内外英才“鸿雁计划”实施办法的通知》，<br>2018年4月8日，又推出《重庆市引进高层次人才若干优惠政策规定》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+                if (params.name == '天津') {
+                    var content = '给政策忙“打补丁”，天津教训，全国梦醒。<br>2018年2月4日，天津市人才工作领导小组办公室发布《关于印发天津市进一步加快引育高端人才若干措施》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '内蒙古') {
+                    var content = '呼和浩特成为全国最快落户城市，大学生凭证即可在线快速落户。<br>2018年5月2日，呼和浩特市政府发布《呼和浩特市推进人才优先发展战略的若干措施（试行）》（俗称“呼市人才新政9条”）';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '宁夏') {
+                    var content = '银川成为技术型人才最友好的自治区城市。<br>2018年4月18日，银川市人民政府发布一揽子政策，包含《银川市关于激发人才活力服务创新驱动发展的若干意见》、<br>《银川市高精尖缺人才优厚待遇实施办法》、《银川市创新型大学生 宜居工程实施办法》、<br>《银川市高精尖缺人才认定实施细则》等7个细则的通知（俗称“银川“1+2+7”人才新政）。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '浙江') {
+                    var content = '最洋气，杭州成为外籍人才最友好城市。<br>2017年4月11日，杭州市人社局、杭州市财政局印发《杭州市新引进应届高学历毕业生生活补贴发放实施办法》、《关于加快推进杭州人才国际化的实施意见》等通知。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+                if (params.name == '广西') {
+                    var content = '不愿“参战”？南宁市人才政策仍在拟定中。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '新疆') {
+                    var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '贵州') {
+                    var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '甘肃') {
+                    var content = '不愿“参战”？南宁市人才政策仍在拟定中。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '青海') {
+                    var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '西藏') {
+                    var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+                if (params.name == '北京') {
+                    var content = '不为所动，北京仅计划推出积分落户';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '上海') {
+                    var content = '不为所动，上海仅新增人才引进专业学科目录';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '广州') {
+                    var content = '不为所动，广州仅微调积分落户门槛';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+                if (params.name == '深圳') {
+                    var content = '一线城市中最友好，积分落户学历门槛放低';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '香港') {
+                    var content = '释放善意，放宽科技人才入港';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '澳门') {
+                    var content = '毫无动静';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+                if (params.name == '珠海') {
+                    var content = '面向特区，珠海大力支持澳门、香港人才来珠创新创业。<br>2018年4月23日，中共珠海市委、市政府发布《关于实施“珠海英才计划”加快集聚新时代创新人才的若干措施》（俗称“珠海人才新政16条”）。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+                if (params.name == '安微' || params.name == '合肥') {
+                    var content = '目标不小，合肥五年内要实现百万人才在肥安居乐业。<br>2017年6月20日，中共合肥市委、市政府颁布《合肥市人民政府关于建设合肥综合性国家科学中心打造创新之都人才工作的意见》，<br>同年12月29日，市人社局发布《合肥市“鸿雁计划”实施细则（暂行）》等三个文件，2018年4月26日市人社局又推出《关于进一步支持人才来肥创新创业的若干政策》。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+                if (params.name == '云南' || params.name == '昆明') {
+                    var content = '不愿“参战”？昆明市人才政策仍在拟定中。';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+                if (params.name == '海南' || params.name == '海口') {
+                    var content = '把握历史机遇——海南自贸区狂揽百万人才。2018年5月13日，<br>中共海南省委发布《百万人才进海南行动计划(2018—2025年)》，海口市目前执行海南省人才计划';
+                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                    return info;
+                }
+
+            },
+            backgroundColor: "#89bdd3",//提示标签背景颜色
+            textStyle: {color: "#fff"} //提示标签字体颜色
+        },
+        series: [
+            {
+                name: '中国',
+                type: 'map',
+                mapType: 'china',
+                selectedMode: 'multiple',
+                label: {
+                    normal: {
+                        show: true,//显示省份标签
+                        // textStyle:{color:"#c71585"}//省份标签字体颜色
+                    },
+                    emphasis: {
+                        show: true,//对应的鼠标悬浮效果
+                        // textStyle:{color:"#800080"}
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderWidth: .5,//区域边框宽度
+                        // borderColor: '#009fe8',//区域边框颜色
+                        // areaColor:"#ffefd5",//区域颜色
+                    },
+                    emphasis: {
+                        borderWidth: .5,
+                        borderColor: '#89bdd3',
+                        areaColor: "#89bdd3",
+                    }
+                },
+                data: dataMap
+            }
+        ]
+    };
+    //初始化echarts实例
+    var myChart = echarts.init(document.getElementById('container'));
+    //使用制定的配置项和数据显示图表
+    myChart.setOption(option);
+</script>
+</html>
