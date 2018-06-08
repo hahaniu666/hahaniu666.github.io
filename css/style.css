@@ -159,7 +159,7 @@ ul, li {
     font-family: "Microsoft YaHei";
     width: 1200px;
     margin: 0 auto;
-    font-size: 28px;
+    font-size: 20px;
     line-height: 1.5em;
     text-align: left;
 }
@@ -529,6 +529,7 @@ ul, li {
     width: 600px;
     height: 1100px;
     position: relative;
+    font-family: "Microsoft YaHei";
     margin: 0 auto;
     /*overflow: hidden;*/
     text-align: center;
@@ -538,17 +539,23 @@ ul, li {
 }
 
 .part-top10 ul {
+    font-family: "Microsoft YaHei";
+
     width: 15.5%;
     float: left;
 }
 
 .part-top10 ul.rank {
+    font-family: "Microsoft YaHei";
+
     width: 3%;
     float: left;
 }
 
 .part-top10 li {
     height: 37px;
+    font-family: "Microsoft YaHei";
+
 }
 
 .part-top10 .col1 li:nth-of-type(1) {
