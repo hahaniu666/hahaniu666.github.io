@@ -2197,9 +2197,9 @@
         {name: '陕西'}, {name: '吉林'}, {name: '福建'}, {name: '贵州'},
         {name: '广东'}, {name: '青海'}, {name: '西藏'},
         {name: '四川'}, {name: '宁夏'}, {name: '海南'},
-        {name: '台湾'}, {name: '香港'}, {name: '澳门'}]
+        {name: '台湾'}, {name: '香港'}, {name: '澳门'}, {name: '南海诸岛'}];
     // 需要在页面上直接标记出来的城市
-    var specialMap = ['浙江', '云南', '陕西'];
+    var specialMap = ['北京'];
     // 对dataMap进行处理，使其可以直接在页面上展示
     for (var i = 0; i < specialMap.length; i++) {
         for (var j = 0; j < dataMap.length; j++) {
@@ -2207,249 +2207,252 @@
                 dataMap[j].selected = true;
                 break;
             }
-
         }
     }
     // 绘制图表，准备数据
     var option = {
-        tooltip: {
-            formatter: function (params) {
-                if (params.name == '河北') {
-                    var content = '抹开面子抢人才。冀重点争夺京津人才， 成为石家庄人才新政的最大看点。<br> 2018年4月8日，石家庄市委、市政府颁布《关于实施现代产业人才集聚工程的若干措施》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '山西') {
-                    var content = '太原重视“晋商精神”，力促推动晋商、晋才回乡创新创业。<br> 2018年2月3日，中共太原市委颁布《中共太原市委关于深化人才发展体制机制改革加快推进创新驱动转型升级的实施意见》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '辽宁') {
-                    var content = '沈阳新政推出巨额补贴，跻身东三省中补贴力度最大的城市。<br>2017年12月28日，中共沈阳市委、市政府颁布《沈阳市建设创新创业人才高地的若干政策措施》，<br>并于2018年4月24 日推出《沈阳市建设创新创业人才高地的若干政策措施的补充意见》（俗称“沈阳新政24条”）。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '吉林') {
-                    var content = '长春市委、市政府齐“背书”，为人才吸引战略投资者，建立天使投资基金。<br>2018年1月4日，中共长春市委组织部发布《关于进一步集聚人才创新发展的若干意见》（俗称“长春人才新政25条”）';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '黑龙江') {
-                    var content = '“去了就落户”。哈尔滨成为东三省人才落户门槛最低的城市。<br> 2017年5月2日，哈尔滨市政府颁布《关于印发哈尔滨英才集聚计划实施方案的通知》，<br></br>并于同年12月13日，推出《关于进一步吸引培养人才支持重点产业发展的若干政策》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
+            tooltip: {
+                formatter: function (params) {
+                    for (var i = 0; i < dataMap.length; i++) {
+                        dataMap.selected = false;
+                    }
+                    params.data.selected = true;
+                    console.log('params.name', params, params.name, typeof params.name);
+                    if (params.name == '安徽') {
+                        var content = '目标不小，合肥五年内要实现百万人才在肥安居乐业。<br>2017年6月20日，中共合肥市委、市政府颁布《合肥市人民政府关于建设合肥综合性国家科学中心打造创新之都人才工作的意见》，<br>同年12月29日，市人社局发布《合肥市“鸿雁计划”实施细则（暂行）》等三个文件，<br>2018年4月26日市人社局又推出《关于进一步支持人才来肥创新创业的若干政策》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '河北') {
+                        var content = '抹开面子抢人才。冀重点争夺京津人才， 成为石家庄人才新政的最大看点。<br> 2018年4月8日，石家庄市委、市政府颁布《关于实施现代产业人才集聚工程的若干措施》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '山西') {
+                        var content = '太原重视“晋商精神”，力促推动晋商、晋才回乡创新创业。<br> 2018年2月3日，中共太原市委颁布《中共太原市委关于深化人才发展体制机制改革加快推进创新驱动转型升级的实施意见》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '辽宁') {
+                        var content = '沈阳新政推出巨额补贴，跻身东三省中补贴力度最大的城市。<br>2017年12月28日，中共沈阳市委、市政府颁布《沈阳市建设创新创业人才高地的若干政策措施》，<br>并于2018年4月24 日推出《沈阳市建设创新创业人才高地的若干政策措施的补充意见》（俗称“沈阳新政24条”）。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '吉林') {
+                        var content = '长春市委、市政府齐“背书”，为人才吸引战略投资者，建立天使投资基金。<br>2018年1月4日，中共长春市委组织部发布《关于进一步集聚人才创新发展的若干意见》（俗称“长春人才新政25条”）';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '黑龙江') {
+                        var content = '“去了就落户”。哈尔滨成为东三省人才落户门槛最低的城市。<br> 2017年5月2日，哈尔滨市政府颁布《关于印发哈尔滨英才集聚计划实施方案的通知》，<br></br>并于同年12月13日，推出《关于进一步吸引培养人才支持重点产业发展的若干政策》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+
+                    if (params.name == '江苏') {
+                        var content = '党政一号文同步发出，南京率先打响了2018人才大战第一枪。<br>2017年4月24日，南京市人民政府颁布《关于印发人才安居办法（试行）的通知》，<br></br>2018年1月4日，又推出《南京市政府关于进一步加强人才安居工作的实施意见》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+
+                    if (params.name == '福建') {
+                        var content = '福州率先提出要优先照顾贫困/特困/残疾/少数民族等重点群体的理念，颇具人文情怀。<br>2018年4月18日，福州市政府印发《关于鼓励引进高层次人才的八条措施的通知》，同年5月10日，<br>市人社局发布《福州市高校毕业生就业创业扶持政策清单》（俗称”高层次人才八条措施“）。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+
+                    if (params.name == '山东') {
+                        var content = '体制内人才无忧，济南为人才保留原事业编制，并提供相应编制待遇。<br>2017年5月22日，中共济南市委印发《关于深化人才发展体制机制改革促进人才创新创业的实施意见》<br>（俗称“济南人才新政30条”）';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '河南') {
+                        var content = '郑州推动人才回灌，并发挥人口大省优势，着重加强与在外豫籍人才的对接。<br>2017年11月24日，中共郑州市委印发《中共郑州市委郑州市人民政府关于实施“智汇郑州”人才工程加快推进国家中心城市建设的意见》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '湖北') {
+                        var content = '武汉成为大学生最友好的中部城市——落户门槛低，买房打八折。<br>2017年6月14日，武汉市委、市政府颁布《关于支持百万大学生留汉创业就业的若干政策措施》，<br>同年10月12日，市委办公厅、市政府办公厅联合各市级单位推出一系列细则文件，<br>包含《武汉进一步放宽留汉大学毕业生落户试行政策的通知》、<br>《关于发布武汉市大学毕业生在汉工作指导性最低年薪标准的通知》、<br>《关于加强大学毕业生安居保障 的实施意见（试行）》等。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
 
 
-                if (params.name == '江苏') {
-                    var content = '党政一号文同步发出，南京率先打响了2018人才大战第一枪。<br>2017年4月24日，南京市人民政府颁布《关于印发人才安居办法（试行）的通知》，<br></br>2018年1月4日，又推出《南京市政府关于进一步加强人才安居工作的实施意见》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '安微') {
-                    var content = '目标不小，合肥五年内要实现百万人才在肥安居乐业。<br>2017年6月20日，中共合肥市委、市政府颁布《合肥市人民政府关于建设合肥综合性国家科学中心打造创新之都人才工作的意见》，<br>同年12月29日，市人社局发布《合肥市“鸿雁计划”实施细则（暂行）》等三个文件，2018年4月26日市人社局又推出《关于进一步支持人才来肥创新创业的若干政策》';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '福建') {
-                    var content = '福州率先提出要优先照顾贫困/特困/残疾/少数民族等重点群体的理念，颇具人文情怀。<br>2018年4月18日，福州市政府印发《关于鼓励引进高层次人才的八条措施的通知》，同年5月10日，<br>市人社局发布《福州市高校毕业生就业创业扶持政策清单》（俗称”高层次人才八条措施“）。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-
-                if (params.name == '山东') {
-                    var content = '体制内人才无忧，济南为人才保留原事业编制，并提供相应编制待遇。<br>2017年5月22日，中共济南市委印发《关于深化人才发展体制机制改革促进人才创新创业的实施意见》<br>（俗称“济南人才新政30条”）';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '河南') {
-                    var content = '郑州推动人才回灌，并发挥人口大省优势，着重加强与在外豫籍人才的对接。<br>2017年11月24日，中共郑州市委印发《中共郑州市委郑州市人民政府关于实施“智汇郑州”人才工程加快推进国家中心城市建设的意见》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '湖北') {
-                    var content = '武汉成为大学生最友好的中部城市——落户门槛低，买房打八折。<br>2017年6月14日，武汉市委、市政府颁布《关于支持百万大学生留汉创业就业的若干政策措施》，<br>同年10月12日，市委办公厅、市政府办公厅联合各市级单位推出一系列细则文件，包含《武汉进一步放宽留汉大学毕业生落户试行政策的通知》、<br>《关于发布武汉市大学毕业生在汉工作指导性最低年薪标准的通知》、《关于加强大学毕业生安居保障 的实施意见（试行）》等。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
+                    if (params.name == '湖南') {
+                        var content = '长沙提供人才金融服务与担保。<br>2017年6月21日，中共长沙市委、市政府推出《关于长沙市建设创新创业人才高地的若干措施》（俗称“长沙人才新政22条”）';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '四川') {
+                        var content = '成都为人才设立纪念日，每年4月最后一周的星期六定为“蓉漂人才日”。<br>2017年7月21日，中共成都市委、市政府推出《成都实施人才优先发展战略行动计划》（俗称“成都人才新政12条”）';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '陕西') {
+                        var content = '“出站下车就落户，来了就是西安人”，西安成为新一轮人才大战的领军城市。<br>2017年5月8日，中共西安市委、市政府发布《西安市深化人才发展体制机制改革打造“一带一路”人才高地若干政策措施》<br>（俗称“西安新政13条”），同年12月11日，发布《西安市人民政府办公厅关于进一步鼓励吸引高校毕业生在西安就业创业的意见》，<br>2018年5月8日，西安市人社局、财政局推出《关于印发西安市进一步加快人才汇聚若干措施的通知》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
 
 
-                if (params.name == '湖南') {
-                    var content = '长沙提供人才金融服务与担保。<br>2017年6月21日，中共长沙市委、市政府推出《关于长沙市建设创新创业人才高地的若干措施》（俗称“长沙人才新政22条”）';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '四川') {
-                    var content = '成都为人才设立纪念日，每年4月最后一周的星期六定为“蓉漂人才日”。<br>2017年7月21日，中共成都市委、市政府推出《成都实施人才优先发展战略行动计划》（俗称“成都人才新政12条”）';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '陕西') {
-                    var content = '“出站下车就落户，来了就是西安人”，西安成为新一轮人才大战的领军城市。<br>2017年5月8日，中共西安市委、市政府发布《西安市深化人才发展体制机制改革打造“一带一路”人才高地若干政策措施》<br>（俗称“西安新政13条”），同年12月11日，发布《西安市人民政府办公厅关于进一步鼓励吸引高校毕业生在西安就业创业的意见》，<br>2018年5月8日，西安市人社局、财政局推出《关于印发西安市进一步加快人才汇聚若干措施的通知》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
+                    if (params.name == '广东') {
+                        var content = '面向特区，珠海大力支持澳门、香港人才来珠创新创业。<br>2018年4月23日，中共珠海市委、市政府发布《关于实施“珠海英才计划”加快集聚新时代创新人才的若干措施》（俗称“珠海人才新政16条”）。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '江西') {
+                        var content = '啥都有！南昌推出最全面人才政策。<br>2018年5月8日，中共南昌市委、市政府发布《南昌关于实施“天下英雄城聚天下英才”行动计划的意见》（俗称“南昌人才新政22条”）。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '重庆') {
+                        var content = '掌握核心科技，重庆大力吸收基础/应用/研发类科技人才。<br>2017年4月12日.重庆市政府发布《重庆市人民政府关于印发重庆市引进海内外英才“鸿雁计划”实施办法的通知》，<br>2018年4月8日，又推出《重庆市引进高层次人才若干优惠政策规定》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+
+                    if (params.name == '天津') {
+                        var content = '给政策忙“打补丁”，天津教训，全国梦醒。<br>2018年2月4日，天津市人才工作领导小组办公室发布《关于印发天津市进一步加快引育高端人才若干措施》。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '内蒙古') {
+                        var content = '呼和浩特成为全国最快落户城市，大学生凭证即可在线快速落户。<br>2018年5月2日，呼和浩特市政府发布《呼和浩特市推进人才优先发展战略的若干措施（试行）》（俗称“呼市人才新政9条”）';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '宁夏') {
+                        var content = '银川成为技术型人才最友好的自治区城市。<br>2018年4月18日，银川市人民政府发布一揽子政策，包含《银川市关于激发人才活力服务创新驱动发展的若干意见》、<br>《银川市高精尖缺人才优厚待遇实施办法》、《银川市创新型大学生 宜居工程实施办法》、<br>《银川市高精尖缺人才认定实施细则》等7个细则的通知（俗称“银川“1+2+7”人才新政）。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '浙江') {
+                        var content = '最洋气，杭州成为外籍人才最友好城市。<br>2017年4月11日，杭州市人社局、杭州市财政局印发《杭州市新引进应届高学历毕业生生活补贴发放实施办法》、<br>《关于加快推进杭州人才国际化的实施意见》等通知。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+
+                    if (params.name == '广西') {
+                        var content = '不愿“参战”？南宁市人才政策仍在拟定中。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '新疆' || params.name == '乌鲁木齐') {
+                        var content = '不愿“参战”？乌鲁木齐市、喀什市的人才政策仍在拟定中';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '贵州') {
+                        var content = '不愿“参战”？贵阳市人才政策仍在拟定中。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '甘肃') {
+                        var content = '不愿“参战”？兰州市人才政策仍在拟定中。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '青海') {
+                        var content = '不愿“参战”？西宁市人才政策仍在拟定中。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '西藏') {
+                        var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+
+                    if (params.name == '北京') {
+                        var content = '不为所动，北京仅计划推出积分落户';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '上海') {
+                        var content = '不为所动，上海仅新增人才引进专业学科目录';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '广州') {
+                        var content = '不为所动，广州仅微调积分落户门槛';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+
+                    if (params.name == '深圳') {
+                        var content = '一线城市中最友好，积分落户学历门槛放低';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '香港') {
+                        var content = '释放善意，放宽科技人才入港';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '澳门') {
+                        var content = '毫无动静';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+
+                    if (params.name == '珠海') {
+                        var content = '面向特区，珠海大力支持澳门、香港人才来珠创新创业。<br>2018年4月23日，中共珠海市委、市政府发布《关于实施“珠海英才计划”加快集聚新时代创新人才的若干措施》（俗称“珠海人才新政16条”）。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
 
 
-                if (params.name == '广东') {
-                    var content = '面向特区，珠海大力支持澳门、香港人才来珠创新创业。<br>2018年4月23日，中共珠海市委、市政府发布《关于实施“珠海英才计划”加快集聚新时代创新人才的若干措施》（俗称“珠海人才新政16条”）。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '江西') {
-                    var content = '啥都有！南昌推出最全面人才政策。<br>2018年5月8日，中共南昌市委、市政府发布《南昌关于实施“天下英雄城聚天下英才”行动计划的意见》（俗称“南昌人才新政22条”）。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '重庆') {
-                    var content = '掌握核心科技，重庆大力吸收基础/应用/研发类科技人才。<br>2017年4月12日.重庆市政府发布《重庆市人民政府关于印发重庆市引进海内外英才“鸿雁计划”实施办法的通知》，<br>2018年4月8日，又推出《重庆市引进高层次人才若干优惠政策规定》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
+                    if (params.name == '云南' || params.name == '昆明') {
+                        var content = '不愿“参战”？昆明市人才政策仍在拟定中。';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
+                    if (params.name == '海南' || params.name == '海口') {
+                        var content = '把握历史机遇——海南自贸区狂揽百万人才。2018年5月13日，<br>中共海南省委发布《百万人才进海南行动计划(2018—2025年)》，海口市目前执行海南省人才计划';
+                        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
+                        return info;
+                    }
 
-                if (params.name == '天津') {
-                    var content = '给政策忙“打补丁”，天津教训，全国梦醒。<br>2018年2月4日，天津市人才工作领导小组办公室发布《关于印发天津市进一步加快引育高端人才若干措施》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '内蒙古') {
-                    var content = '呼和浩特成为全国最快落户城市，大学生凭证即可在线快速落户。<br>2018年5月2日，呼和浩特市政府发布《呼和浩特市推进人才优先发展战略的若干措施（试行）》（俗称“呼市人才新政9条”）';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '宁夏') {
-                    var content = '银川成为技术型人才最友好的自治区城市。<br>2018年4月18日，银川市人民政府发布一揽子政策，包含《银川市关于激发人才活力服务创新驱动发展的若干意见》、<br>《银川市高精尖缺人才优厚待遇实施办法》、《银川市创新型大学生 宜居工程实施办法》、<br>《银川市高精尖缺人才认定实施细则》等7个细则的通知（俗称“银川“1+2+7”人才新政）。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '浙江') {
-                    var content = '最洋气，杭州成为外籍人才最友好城市。<br>2017年4月11日，杭州市人社局、杭州市财政局印发《杭州市新引进应届高学历毕业生生活补贴发放实施办法》、《关于加快推进杭州人才国际化的实施意见》等通知。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-
-                if (params.name == '广西') {
-                    var content = '不愿“参战”？南宁市人才政策仍在拟定中。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '新疆') {
-                    var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '贵州') {
-                    var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '甘肃') {
-                    var content = '不愿“参战”？南宁市人才政策仍在拟定中。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '青海') {
-                    var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '西藏') {
-                    var content = '不愿“参战”？拉萨市人才政策仍在拟定中。\n';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-
-                if (params.name == '北京') {
-                    var content = '不为所动，北京仅计划推出积分落户';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '上海') {
-                    var content = '不为所动，上海仅新增人才引进专业学科目录';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '广州') {
-                    var content = '不为所动，广州仅微调积分落户门槛';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-
-                if (params.name == '深圳') {
-                    var content = '一线城市中最友好，积分落户学历门槛放低';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '香港') {
-                    var content = '释放善意，放宽科技人才入港';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '澳门') {
-                    var content = '毫无动静';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-
-                if (params.name == '珠海') {
-                    var content = '面向特区，珠海大力支持澳门、香港人才来珠创新创业。<br>2018年4月23日，中共珠海市委、市政府发布《关于实施“珠海英才计划”加快集聚新时代创新人才的若干措施》（俗称“珠海人才新政16条”）。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-
-                if (params.name == '安微' || params.name == '合肥') {
-                    var content = '目标不小，合肥五年内要实现百万人才在肥安居乐业。<br>2017年6月20日，中共合肥市委、市政府颁布《合肥市人民政府关于建设合肥综合性国家科学中心打造创新之都人才工作的意见》，<br>同年12月29日，市人社局发布《合肥市“鸿雁计划”实施细则（暂行）》等三个文件，2018年4月26日市人社局又推出《关于进一步支持人才来肥创新创业的若干政策》。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-
-                if (params.name == '云南' || params.name == '昆明') {
-                    var content = '不愿“参战”？昆明市人才政策仍在拟定中。';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-                if (params.name == '海南' || params.name == '海口') {
-                    var content = '把握历史机遇——海南自贸区狂揽百万人才。2018年5月13日，<br>中共海南省委发布《百万人才进海南行动计划(2018—2025年)》，海口市目前执行海南省人才计划';
-                    var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
-                    return info;
-                }
-
+                },
+                backgroundColor: "#89bdd3",//提示标签背景颜色
+                textStyle:
+                    {
+                        color: "#fff"
+                    } //提示标签字体颜色
             },
-            backgroundColor: "#89bdd3",//提示标签背景颜色
-            textStyle: {color: "#fff"} //提示标签字体颜色
-        },
-        series: [
-            {
-                name: '中国',
-                type: 'map',
-                mapType: 'china',
-                selectedMode: 'multiple',
-                label: {
-                    normal: {
-                        show: true,//显示省份标签
-                        // textStyle:{color:"#c71585"}//省份标签字体颜色
+            series: [
+                {
+                    name: '中国',
+                    type: 'map',
+                    mapType: 'china',
+                    selectedMode: 'single',
+                    label: {
+                        normal: {
+                            show: true,//显示省份标签
+                            // textStyle:{color:"#c71585"}//省份标签字体颜色
+                        },
+                        emphasis: {
+                            show: true,//对应的鼠标悬浮效果
+                            // textStyle:{color:"#800080"}
+                        }
                     },
-                    emphasis: {
-                        show: true,//对应的鼠标悬浮效果
-                        // textStyle:{color:"#800080"}
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        borderWidth: .5,//区域边框宽度
-                        // borderColor: '#009fe8',//区域边框颜色
-                        // areaColor:"#ffefd5",//区域颜色
+                    itemStyle: {
+                        normal: {
+                            borderWidth: .5,//区域边框宽度
+                            // borderColor: '#009fe8',//区域边框颜色
+                            // areaColor:"#ffefd5",//区域颜色
+                        },
+                        emphasis: {
+                            borderWidth: .5,
+                            borderColor: '#89bdd3',
+                            areaColor: "#89bdd3",
+                        }
                     },
-                    emphasis: {
-                        borderWidth: .5,
-                        borderColor: '#89bdd3',
-                        areaColor: "#89bdd3",
-                    }
-                },
-                data: dataMap
-            }
-        ]
-    };
+                    data: dataMap
+                }
+            ]
+        }
+    ;
     //初始化echarts实例
     var myChart = echarts.init(document.getElementById('container'));
     //使用制定的配置项和数据显示图表
