@@ -3,39 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,height=device-height">
-    <title>堆叠柱状图</title>
-    <style>::-webkit-scrollbar {
-        display: none;
-    }
-
-    html, body {
-        overflow: hidden;
-        height: 100%;
-    }</style>
+    <title>多条阶梯折线图</title>
+    <style>::-webkit-scrollbar{display:none;}html,body{overflow:hidden;height:100%;}</style>
 </head>
 <body>
 <div id="mountNode"></div>
-<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/
-document.body.clientHeight;</script>
+<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/document.body.clientHeight;</script>
 <script src="https://gw.alipayobjects.com/os/antv/assets/g2/3.1.0/g2.min.js"></script>
 <script src="https://gw.alipayobjects.com/os/antv/assets/data-set/0.8.7/data-set.min.js"></script>
 <script>
     var data = [{
-        name: '2016',
-        '西安': 8249300,
-        '杭州': 7360000,
+        month: 'Jan',
+        series2: 51,
+        series1: 125
     }, {
-        name: '2017',
-        '西安': 8283248,
-        '杭州': 7457649,
+        month: 'Feb',
+        series2: 91,
+        series1: 132
+    }, {
+        month: 'Mar',
+        series2: 34,
+        series1: 141
+    }, {
+        month: 'Apr',
+        series2: 47,
+        series1: 158
+    }, {
+        month: 'May',
+        series2: 63,
+        series1: 133
+    }, {
+        month: 'June',
+        series2: 58,
+        series1: 143
+    }, {
+        month: 'July',
+        series2: 56,
+        series1: 176
+    }, {
+        month: 'Aug',
+        series2: 77,
+        series1: 194
+    }, {
+        month: 'Sep',
+        series2: 99,
+        series1: 115
+    }, {
+        month: 'Oct',
+        series2: 106,
+        series1: 134
+    }, {
+        month: 'Nov',
+        series2: 88,
+        series1: 110
+    }, {
+        month: 'Dec',
+        series2: 56,
+        series1: 91
     }];
+
     var ds = new DataSet();
     var dv = ds.createView().source(data);
     dv.transform({
         type: 'fold',
-        fields: ['西安', '杭州'], // 展开字段集
-        key: '月份', // key字段
-        value: '月均降雨量' // value字段
+        fields: ['series1', 'series2'], // 展开字段集
+        key: 'key', // key字段
+        value: 'value' // value字段
     });
 
     var chart = new G2.Chart({
@@ -43,8 +76,12 @@ document.body.clientHeight;</script>
         forceFit: true,
         height: window.innerHeight
     });
-    chart.source(dv);
-    chart.intervalStack().position('月份*月均降雨量').color('name');
+    chart.source(dv, {
+        month: {
+            range: [0, 1]
+        }
+    });
+    chart.line().position('month*value').shape('hv').color('key');
     chart.render();
 </script>
 </body>

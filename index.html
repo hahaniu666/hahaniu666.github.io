@@ -239,7 +239,7 @@
 <!--人才新政地图-->
 <div class="content-div">
     <div class="content-wrap">
-        <p class="subtitle"><span class="blue">人才大战的时间与空间</span></p>
+        <p class="subtitle"><span class="blue"><b>>></b> 人才大战的时间与空间</span></p>
     </div>
 </div>
 <div class="content-div" style="padding-bottom: 0">
@@ -534,7 +534,7 @@
 <!--你在挑选城市，城市也在挑选你-->
 <div class="content-div" style="padding-bottom: 0">
     <div class="content-wrap">
-        <p class="subtitle"><span> 你选择城市，城市也选择你</span></p>
+        <p class="subtitle"><span class="blue"><b>>></b> 你选择城市，城市也选择你</span></p>
         <!--<p class="caption">注：<span class="highlight">“通勤距离&通勤时间”</span>：此处是指根据滴滴出行平台上打车出行数据测算的上下班通勤距离和时间，即工作日06:00-10:00和16:00-21:00期间通过滴滴顺风车和专快车来往于住宅小区和商务楼宇的订单的平均距离及时间，数据统计周期为2017年11月。-->
         </p>
     </div>
@@ -737,7 +737,7 @@
 
 <div class="content-div">
     <div class="content-wrap">
-        <p class="subtitle"><span class="blue"> 为何会在2018年前后爆发“人才大战”？</span></p>
+        <p class="subtitle"><span class="blue"> <b>>></b> 为何会在2018年前后爆发“人才大战”？</span></p>
         <!--<p class="caption">注：城市人才政策的总强度得分，是根据四个子维度的分数加权所得，包含人才覆盖度、安居补贴力度、落户政策力度、配套保障力度等</p>-->
     </div>
 </div>
@@ -831,7 +831,7 @@
 </div>
 <div class="content-div">
     <div class="content-wrap">
-        <p class="subtitle"><span class="blue"> 如何检验人才新政的成效？</span></p>
+        <p class="subtitle"><span class="blue"><b>>></b> 如何检验人才新政的成效？</span></p>
         <!--<p class="caption">注：城市人才政策的总强度得分，是根据四个子维度的分数加权所得，包含人才覆盖度、安居补贴力度、落户政策力度、配套保障力度等</p>-->
     </div>
 </div>
@@ -893,8 +893,8 @@
 </div>
 <div class="content-div">
     <div class="content-wrap">
-        <div class="currency-chart" style="height:800px;">
-            <div style="width: 1000px;height:800px; margin: 0 auto;" id="changzhuChart" class="changzhuChart"></div>
+        <div class="currency-chart" style="height:600px;">
+            <div style="width: 800px;height:600px; margin: 0 auto;" id="changzhuChart" class="changzhuChart"></div>
         </div>
     </div>
 </div>
@@ -1065,21 +1065,21 @@
     });
 
 
-    $(".content-wrap p").find(".first").bind("mouseover", function () {
-        console.log("123123", $(this).index());
+    // $(".content-wrap p").find(".first").bind("mouseover", function () {
+    //     console.log("123123", $(this).index());
+    //
+    //     $(this).animate({
+    //         color: "#88b8d6"
+    //     }, 1000);
+    // });
 
-        $(this).animate({
-            color: "#88b8d6"
-        }, 1000);
-    });
-
-    $(".content-wrap p").find(".first").bind(" mouseout", function () {
-        console.log("123123", $(this).index());
-
-        $(this).animate({
-            color: "#000"
-        }, 1000);
-    });
+    // $(".content-wrap p").find(".first").bind(" mouseout", function () {
+    //     console.log("123123", $(this).index());
+    //
+    //     $(this).animate({
+    //         color: "#000"
+    //     }, 1000);
+    // });
     // $(".content-wrap p").find(".first").css({
     //     "color": "white",
     //     "background-color": "#98bf21",
@@ -1265,11 +1265,11 @@
             left: 'right',
             top: 'center',
             feature: {
-                mark: {show: true},
-                dataView: {show: true, readOnly: false},
+                // mark: {show: true},
+                // dataView: {show: true, readOnly: false},
                 magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
                 restore: {show: true},
-                saveAsImage: {show: true}
+                // saveAsImage: {show: true}
             }
         },
         calculable: true,
@@ -1348,6 +1348,19 @@
             trigger: 'axis',
             axisPointer: {            // 坐标轴指示器，坐标轴触发有效
                 type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                // mark: {show: true},
+                // dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                restore: {show: true},
+                // saveAsImage: {show: true}
             }
         },
         legend: {

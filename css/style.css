@@ -156,7 +156,7 @@ ul, li {
 }
 
 .content-wrap {
-    font-family: "Microsoft YaHei";
+    font-family: "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
     width: 1200px;
     margin: 0 auto;
     font-size: 20px;
@@ -166,7 +166,8 @@ ul, li {
 
 .content-wrap p {
     padding-top: 15px;
-    padding-bottom: 15px
+    padding-bottom: 15px;
+    letter-spacing: 2px;
 }
 
 .content-wrap .subtitle span {
@@ -174,12 +175,20 @@ ul, li {
     padding-bottom: 4px;
     font-weight: bold
 }
+
 .content-wrap p span.first {
     /*border-bottom: 2px #333 solid;*/
     /*padding-bottom: 4px;*/
     font-weight: bold;
 
 }
+.content-wrap p span.blue b {
+    /*border-bottom: 2px solid #333;*/
+    display: inline-block;
+    vertical-align: top;
+    font-size: 24px;
+}
+
 .content-wrap .subtitle {
     color: #333;
     font-size: 30px;
@@ -357,7 +366,6 @@ ul, li {
     border-radius: 50%;
     background: #fff;
 }
-
 
 .time-axis-wrap .time-axis-detail img {
     width: 60px;
