@@ -17,7 +17,7 @@
     <!--轮播图-->
     <script src="js/velocity.js"></script>
     <script src="js/swiper.js"></script>
-    <script src="js/ichart.js"> </script>
+    <script src="js/ichart.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/swiper.css">
@@ -492,7 +492,7 @@
              height="100%">
         <div class="heihe-line"></div>
         <div class="qinhuai-line1"></div>
-        <div class="qinhuai-line2"></div>
+        <!--<div class="qinhuai-line2"></div>-->
 
 
         <div class="heihe-circle1"></div>
@@ -503,6 +503,14 @@
         <div class="heihe-circle5"></div>
         <div class="heihe-circle6"></div>
 
+
+        <div class="line1-border">
+            “秦岭-淮河分界线”，是中国南方和北方的地理分界线，此线的南面和北面，无论是自然条件、农业生产方式，还是地理风貌或是人民的生活习俗，都有明显的不同。
+        </div>
+        <div class="line2-border">
+            “黑河-腾冲”线又称“胡焕庸线”，是1935年著名地理学家胡焕庸所划定的假象分界线，大致划分了中国人口的区域分布。
+        </div>
+
     </div>
 </div>
 
@@ -511,8 +519,6 @@
         <!--<p class="subtitle" style="text-align: center"><span style="font-size: 26px;color: #666;">—— “抢人大战”的全国地图 ——</span></p>-->
         <p class="caption" style=" color: #999;">
             注释：地图仅标出37个省会城市、直辖市以及部分重要区域性经济城市的分布。其他已颁布人才政策的地级市，如淄博、牡丹江、滁州等，未纳入考虑。<br/>
-            *“黑河-腾冲”线又称“胡焕庸线”，是1935年著名地理学家胡焕庸所划定的假象分界线，大致划分了中国人口的区域分布。<br/>
-            *“秦岭-淮河分界线”，是中国南方和北方的地理分界线，此线的南面和北面，无论是自然条件、农业生产方式，还是地理风貌或是人民的生活习俗，都有明显的不同。
         </p>
     </div>
 </div>
@@ -781,11 +787,11 @@
     </div>
 </div>
 <!--<div class="content-div" style="padding: 0">-->
-    <!--<div class="content-wrap">-->
-        <!--<p class="caption" style="text-align: left;color: #999">注释：-->
-            <!--左图：；中图：；右图：。-->
-        <!--</p>-->
-    <!--</div>-->
+<!--<div class="content-wrap">-->
+<!--<p class="caption" style="text-align: left;color: #999">注释：-->
+<!--左图：；中图：；右图：。-->
+<!--</p>-->
+<!--</div>-->
 <!--</div>-->
 <div class="content-div">
     <div class="content-wrap">
@@ -829,7 +835,8 @@
 </div>
 <div class="content-div" style="padding: 0">
     <div class="content-wrap">
-        <p class="caption" style="text-align: left;color: #999">注释：方块面积越大，表示该维度数据与创新创业扶持力度相关度越高，五类统计数据及相关系数分别为：城市年度货运量（ r= -.576）, 高校毕业生数（r= -.483）, 房地产开发投资额 (r= -.508), 房地产开发企业施工房屋面积(r= -.513)和常住人口(r= -.544)。
+        <p class="caption" style="text-align: left;color: #999">注释：方块面积越大，表示该维度数据与创新创业扶持力度相关度越高，五类统计数据及相关系数分别为：城市年度货运量（
+            r= -.576）, 高校毕业生数（r= -.483）, 房地产开发投资额 (r= -.508), 房地产开发企业施工房屋面积(r= -.513)和常住人口(r= -.544)。
         </p>
     </div>
 </div>
@@ -998,7 +1005,6 @@
     });
 
 
-
     $(".byDistance, .hitDis").click(function () {
         //按钮切换
         $(".pointer").animate({left: 0}, 500).removeClass("color1").addClass("color2");
@@ -1060,11 +1066,18 @@
         }, 3000)
         setTimeout(function () {
             $(".map-wrap .citys_map .heihe-line").fadeIn(1000).css('transform', 'rotate(-45deg) scale(1)');
-        }, 3500)
+        }, 3500);
+        setTimeout(function () {
+            $(".map-wrap .citys_map .line2-border").fadeIn(1000).css('opacity', '1');
+        }, 3800);
+
+
         setTimeout(function () {
             $(".map-wrap .citys_map .qinhuai-line1").fadeIn(1000).css('width', '210px');
         }, 4000)
-
+        setTimeout(function () {
+            $(".map-wrap .citys_map .line1-border").fadeIn(1000).css('opacity', '1');
+        }, 4300)
 
     });
 
@@ -1344,12 +1357,12 @@
 <!--人口预测图表-->
 <script type="text/javascript">
 
-    $(function(){
+    $(function () {
 
         var data = [
             {
-                name : '2016',
-                value:[
+                name: '2016',
+                value: [
                     824.9300,
                     736.0000,
                     695.9998,
@@ -1367,11 +1380,11 @@
                     723.3100,
                     972.4000,
                 ],
-                color:'#88b8d6'
+                color: '#88b8d6'
             },
             {
-                name : '2017',
-                value:[
+                name: '2017',
+                value: [
                     828.3248,
                     745.7649,
                     704.6037,
@@ -1389,11 +1402,11 @@
                     732.1200,
                     988.1000,
                 ],
-                color:'#d48265'
+                color: '#d48265'
             },
             {
-                name : '2018',
-                value:[
+                name: '2018',
+                value: [
                     837.8121,
                     753.0710,
                     711.7777,
@@ -1411,13 +1424,13 @@
                     740.7200,
                     1005.0193,
                 ],
-                color:'#c9c9c9'
+                color: '#c9c9c9'
             }
         ];
         var chart = new iChart.ColumnMulti3D({
-            render : 'canvasDiv',
+            render: 'canvasDiv',
             data: data,
-            labels:[
+            labels: [
                 '西安',
                 '杭州',
                 '长沙',
@@ -1435,55 +1448,55 @@
                 '济南',
                 '郑州',
             ],
-            width : 1200,
-            height : 700,
-            background_color : '#ffffff',
-            border : {
-                enable : false
+            width: 1200,
+            height: 700,
+            background_color: '#ffffff',
+            border: {
+                enable: false
             },
-            legend:{
-                enable:true,
-                background_color : null,
-                align : 'center',
-                valign : 'bottom',
-                row:1,
-                column:'max',
-                border : {
-                    enable : false
+            legend: {
+                enable: true,
+                background_color: null,
+                align: 'center',
+                valign: 'bottom',
+                row: 1,
+                column: 'max',
+                border: {
+                    enable: false
                 }
             },
-            column_width : 4,//柱形宽度
-            zScale:8,//z轴深度倍数
-            xAngle : 50,
-            bottom_scale:1.1,
-            label:{
-                color:'#4c4f48'
+            column_width: 4,//柱形宽度
+            zScale: 8,//z轴深度倍数
+            xAngle: 50,
+            bottom_scale: 1.1,
+            label: {
+                color: '#4c4f48'
             },
-            sub_option:{
-                label :false
+            sub_option: {
+                label: false
             },
-            tip:{
-                enable :true
+            tip: {
+                enable: true
             },
-            text_space : 16,//坐标系下方的label距离坐标系的距离。
-            coordinate:{
-                background_color : '#d7d7d5',
-                grid_color : '#a4a4a2',
-                color_factor : 0.24,
-                board_deep:10,
-                offsety:-10,
-                pedestal_height:10,
-                left_board:false,//取消左侧面板
-                width:800,
-                height:500,
-                scale:[{
-                    position:'left',
-                    start_scale:0,
-                    end_scale:1200,
-                    scale_space:200,
-                    scale_enable : false,
-                    label:{
-                        color:'#4c4f48'
+            text_space: 16,//坐标系下方的label距离坐标系的距离。
+            coordinate: {
+                background_color: '#d7d7d5',
+                grid_color: '#a4a4a2',
+                color_factor: 0.24,
+                board_deep: 10,
+                offsety: -10,
+                pedestal_height: 10,
+                left_board: false,//取消左侧面板
+                width: 800,
+                height: 500,
+                scale: [{
+                    position: 'left',
+                    start_scale: 0,
+                    end_scale: 1200,
+                    scale_space: 200,
+                    scale_enable: false,
+                    label: {
+                        color: '#4c4f48'
                     }
                 }]
             }
@@ -1491,7 +1504,7 @@
 
         //利用自定义组件构造左侧说明文本
         chart.plugin(new iChart.Custom({
-            drawFn:function(){
+            drawFn: function () {
                 //计算位置
                 var coo = chart.getCoordinate(),
                     x = coo.get('originx'),
@@ -1500,14 +1513,13 @@
                 chart.target.textAlign('start')
                     .textBaseline('bottom')
                     .textFont('600 11px Verdana')
-                    .fillText('人口增长(万人)',x-40,y-28,false,'#6d869f');
+                    .fillText('人口增长(万人)', x - 40, y - 28, false, '#6d869f');
 
             }
         }));
 
         chart.draw();
     });
-
 
 
 </script>
