@@ -786,13 +786,6 @@
         </div>
     </div>
 </div>
-<!--<div class="content-div" style="padding: 0">-->
-<!--<div class="content-wrap">-->
-<!--<p class="caption" style="text-align: left;color: #999">注释：-->
-<!--左图：；中图：；右图：。-->
-<!--</p>-->
-<!--</div>-->
-<!--</div>-->
 <div class="content-div">
     <div class="content-wrap">
         <p>我们发现，<span class="first">人口越集中的城市，人才政策的力度也越大。</span></p>
@@ -813,8 +806,6 @@
 <div class="content-div">
     <div class="content-wrap">
         <div class="currency-chart" style="height: 570px">
-            <!--<img src="images/blockImg.png" alt="" width="100%" height="100%">-->
-
             <div class="block_wrap">
                 <div class="left-top">
                     <span>创业创新扶持力度</span>
@@ -950,24 +941,6 @@
             网页制作：金霖峰<br/>
             <br/>
             City University of Hong Kong
-            <!--指导老师：Jonathan Zhu（祝建华教授）<br/>-->
-            <!--策划：段泽宁<br/>-->
-            <!--数据分析：周秦，段泽宁，金霖峰<br/>-->
-            <!--文字：孙凌奕<br/>-->
-            <!--网页原型与美工：何林津<br/>-->
-            <!--网页制作：牛志勇<br/>-->
-            <!--视频剪辑：金霖峰<br/>-->
-            <!--协助：王羽鹏，焦文，王羽佳-->
-            <!--邹祖铭，杨谨菡-->
-
-            <!--指导老师：Jonathan Zhu（祝建华教授）<br/>-->
-            <!--策划：段泽宁 <br/>-->
-            <!--数据分析：周秦，段泽宁，金霖峰<br/>-->
-            <!--文字：孙凌奕<br/>-->
-            <!--网页原型与美工：何林津，王羽鹏<br/>-->
-            <!--网页制作：牛志勇，焦文<br/>-->
-            <!--视频剪辑：金霖峰，邹祖铭<br/>-->
-            <!--<p class="mobile-only" style="text-align:center"><img src="images/qr.png" width="50%"></p>-->
     </div>
 </div>
 
@@ -1089,45 +1062,14 @@
     });
 
 
-    // $(".content-wrap p").find(".first").bind("mouseover", function () {
-    //     console.log("123123", $(this).index());
-    //
-    //     $(this).animate({
-    //         color: "#88b8d6"
-    //     }, 1000);
-    // });
-
-    // $(".content-wrap p").find(".first").bind(" mouseout", function () {
-    //     console.log("123123", $(this).index());
-    //
-    //     $(this).animate({
-    //         color: "#000"
-    //     }, 1000);
-    // });
-    // $(".content-wrap p").find(".first").css({
-    //     "color": "white",
-    //     "background-color": "#98bf21",
-    //     "font-family": "Arial",
-    //     "font-size": "20px",
-    //     "padding": "5px"
-    // });
-
     $(".wrapewwe").click(function () {
-        console.log(' $(window).height()', $(window).height());
         var t = $(document).scrollTop();
         $('body,html').animate({'scrollTop': t + 1000}, 2000)
     });
 
 
     $(document).scroll(function () {
-
         var top = $(document).scrollTop();
-
-        console.log('top', top);
-        console.log(' $(window).height() ', $(window).height());
-        console.log(' $(window).height() + 100', $(window).height() + 100);
-        console.log('top > $(window).height() + 100 && drawRadiusFlag == 0', top > $(window).height() + 100 && drawRadiusFlag == 0);
-
 
         if (top >= 780) {
             $('.time-axis-wrap1').find('.time-axis-detail1').each(function () {
@@ -1156,12 +1098,10 @@
     //视频播放
     $("#video1").click(function () {
         if (document.getElementById("video1").paused) {
-            //console.log("play")
             document.getElementById("video1").play();
             document.getElementById("video1").controls = "controls"
         }
         else {
-            //console.log("pause")
             document.getElementById("video1").pause()
 
         }
@@ -1531,194 +1471,6 @@
 
 
 </script>
-<!--<script type="text/javascript">
-
-    // 基于准备好的dom，初始化echarts实例
-    var app = echarts.init(document.getElementById('renkouChart'));
-    app.title = '人口预测数据';
-    option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        toolbox: {
-            show: true,
-            orient: 'vertical',
-            left: 'right',
-            top: 'center',
-            feature: {
-                // mark: {show: true},
-                // dataView: {show: true, readOnly: false},
-                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-                restore: {show: true},
-                // saveAsImage: {show: true}
-            }
-        },
-        legend: {
-            data: ['2016', '2017', '2018']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-
-        // xAxis: {
-        //     type: 'category',
-        //     data: [
-        //         '西安', '\n杭州', '长沙', '\n成都', '广州', '\n海口', '南昌', '\n珠海', '鄂尔多斯', '\n厦门', '天津', '\n重庆',
-        //         '沈阳', '\n南京', '武汉', '\n石家庄', '太原', '\n长春', '哈尔滨', '\n福州', '济南', '\n郑州', '合肥',
-        //     ]
-        // },
-        xAxis: [
-            {
-                'type': 'category',
-                'axisLabel': {'interval': 0},
-                'data': [
-                    '西安', '\n杭州', '长沙', '\n成都', '广州', '\n海口', '南昌', '\n珠海', '鄂尔多斯', '\n厦门', '天津', '\n重庆',
-                    '沈阳', '\n南京', '武汉', '\n石家庄', '太原', '\n长春', '哈尔滨', '\n福州', '济南', '\n郑州', '合肥',
-                ],
-                splitLine: {show: false}
-            }
-        ],
-        yAxis: {
-            type: 'value',
-            show: false,
-        },
-        series: [
-            {
-                name: '2016',
-                type: 'bar',
-                stack: '总量',
-                color: '#88b8d6',
-                borderColor: '#88b8d6',
-                borderWidth: '#88b8d6',
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'insideRight',
-                        textStyle: {
-                            color: '#88b8d6'
-                        }
-                    }
-                },
-                data: [
-                    8249300,
-                    7360000,
-                    6959998,
-                    13989297,
-                    8704901,
-                    1670344,
-                    5227900,
-                    1147765,
-                    1594396,
-                    2205489,
-                    10444000,
-                    33921100,
-                    7344000,
-                    6627900,
-                    8338400,
-                    10784600,
-                    4344400,
-                    7534000,
-                    9620500,
-                    6870600,
-                    7233100,
-                    9724000,
-                    7298300,
-                ]
-            },
-            {
-                name: '2017',
-                type: 'bar',
-                stack: '总量',
-                color: '#d48265',
-                borderColor: '#d48265',
-                borderWidth: '#d48265',
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'insideRight',
-                        textStyle: {
-                            color: '#d48265'
-                        }
-                    }
-                },
-                data: [
-                    8283248,
-                    7457649,
-                    7046037,
-                    0,
-                    8812029,
-                    1691786,
-                    0,
-                    1170411,
-                    1608500,
-                    2260910,
-                    10483343,
-                    34002161,
-                    7350939,
-                    6643642,
-                    0,
-                    10879900,
-                    0,
-                    0,
-                    9550000,
-                    6916919,
-                    7321200,
-                    9881000,
-                    0
-                ]
-            },
-            {
-                name: '2018',
-                type: 'bar',
-                stack: '总量',
-                color: '#c9c9c9',
-                borderColor: '#c9c9c9',
-                borderWidth: '#c9c9c9',
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'insideRight',
-                        textStyle: {
-                            color: '#c9c9c9'
-                        }
-                    }
-                },
-                data: [
-                    8378121,
-                    7530710,
-                    7117777,
-                    0,
-                    8934351,
-                    1721050,
-                    0,
-                    1202013,
-                    1624477,
-                    2335090,
-                    10604011,
-                    34227449,
-                    7350939,
-                    6718998,
-                    0,
-                    11017847,
-                    0,
-                    0,
-                    9473432,
-                    6984090,
-                    7407200,
-                    10050193,
-                    0,
-                ]
-            },
-        ]
-    };
-    app.setOption(option);
-</script>-->
 <!--放射性饼状图-->
 <script type="text/javascript">
     var days = ['', '配套保障力度', '落户政策力度', '安居补贴力度', '人才覆盖度', '政策强度'];
@@ -2018,28 +1770,6 @@
         }
         if (array.length > 1) topLine1.push([array, city])
     }
-    // var matrix3x3x3x3x3 = [];
-    // for (var i = 0; i < matrix3x3x3x3x3.length; i++) {
-    //     alert(1);
-    //     for (var j = 0; j < matrix3x3x3x3x3[i].length; j++) {
-    //         for (var z = 0; z < matrix3x3x3x3x3[i][j].length; z++) {
-    //             for (var k = 0; k < matrix3x3x3x3x3[i][j][z].length; k++) {
-    //                 for (var s = 0; s < matrix3x3x3x3x3[i][j][z][k].length; s++) {
-    //                     matrix3x3x3x3x3[i][j][z][k][s] = i + j + z + k + s;
-    //                     console.log(matrix3x3x3x3x3[i][j][z][k][s]);
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-    // var matrix3x3x3 = [];
-    // for (var i = 0; i < matrix3x3x3.length; i++) {
-    //     for (var j = 0; j < matrix3x3x3[i].length; j++) {
-    //         for (var z = 0; z < matrix3x3x3[i][j].length; z++) {
-    //             console.log(i + j + z);
-    //         }
-    //     }
-    // }
     for (var i = 1; i < 25; i++) {
         var array = [i];
         var city = top10[1][i];
@@ -2221,7 +1951,6 @@
     var option = {
             tooltip: {
                 formatter: function (params) {
-                    // console.log('params.name', params, params.name, typeof params.name);
                     if (params.name == '安徽') {
                         var content = '目标不小，合肥五年内要实现百万人才在肥安居乐业。<br>2017年6月20日，中共合肥市委、市政府颁布《合肥市人民政府关于建设合肥综合性国家科学中心打造创新之都人才工作的意见》，<br>同年12月29日，市人社局发布《合肥市“鸿雁计划”实施细则（暂行）》等三个文件，<br>2018年4月26日市人社局又推出《关于进一步支持人才来肥创新创业的若干政策》。';
                         var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
