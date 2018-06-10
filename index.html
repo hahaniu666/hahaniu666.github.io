@@ -17,6 +17,7 @@
     <!--轮播图-->
     <script src="js/velocity.js"></script>
     <script src="js/swiper.js"></script>
+    <script src="js/ichart.js"> </script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/swiper.css">
@@ -771,17 +772,21 @@
             <div class="sandian-line1"></div>
             <div class="sandian-line2"></div>
             <div class="sandian-line3"></div>
+
+            <div class="sandian-tips-left">政策总体力度与城市常住人口密度正相关（r = .341）</div>
+            <div class="sandian-tips-center">“高级特”人才引进力度与城市人口自然增长率之间负相关（r= -.537）</div>
+            <div class="sandian-tips-right">落户政策力度与城市人口自然死亡率之间正相关（r= .394）</div>
+
         </div>
     </div>
 </div>
-<div class="content-div" style="padding: 0">
-    <div class="content-wrap">
-        <p class="caption" style="text-align: left;color: #999">注释：
-            左图：政策总体力度与城市常住人口密度正相关（r = .341）；中图：“高级特”人才引进力度与城市人口自然增长率之间负相关（r= -.537）；右图：落户政策力度与城市人口自然死亡率之间正相关（r= .394）。
-
-        </p>
-    </div>
-</div>
+<!--<div class="content-div" style="padding: 0">-->
+    <!--<div class="content-wrap">-->
+        <!--<p class="caption" style="text-align: left;color: #999">注释：-->
+            <!--左图：；中图：；右图：。-->
+        <!--</p>-->
+    <!--</div>-->
+<!--</div>-->
 <div class="content-div">
     <div class="content-wrap">
         <p>我们发现，<span class="first">人口越集中的城市，人才政策的力度也越大。</span></p>
@@ -857,17 +862,17 @@
     </div>
 </div>
 
-<div class="content-div" style="height: 800px;">
-    <div class="content-wrap" style="height: 800px;">
-        <div class="currency-chart" style="height: 800px;">
-            <div style="width: 1000px;height:800px; margin: 0 auto;" id="renkouChart" class="renkouChart"></div>
+<div class="content-div" style="height: 700px;    margin-top: -50px;">
+    <div class="content-wrap" style="height: 700px;">
+        <div class="currency-chart" style="height: 700px;">
+            <div style="width: 1200px;height:700px; margin: 0 auto;" id="canvasDiv" class="canvasDiv"></div>
         </div>
     </div>
 </div>
 <div class="content-div" style="padding: 0">
     <div class="content-wrap">
         <p class="caption" style="text-align: left;color: #999">
-            注释：根据2000年至2016年的城市户籍人口和常住人口数据，我们对城市在2017年和2018年的户籍人口数和常住人口数进行了预测（灰色块数值）。其中，成都、南昌、太原、长春、合肥五个城市在近十年内的人口增长规律较为复杂，预测模型拟合不佳，未呈现其预测结果。
+            注释：根据2000-2016年的城市户籍人口和常住人口数据，我们对2017／18年城市的户籍人口和常住人口数进行预测。其中，成都、南昌、武汉、太原、长春、合肥六个城市近十年内的人口增长规律较为复杂，预测模型拟合不佳，图中未予呈现。此外，重庆数据中县乡镇人口基数比例大，预测结果无法直接反映该地区市区人口的变化情况，因此图中也未予呈现。
         </p>
     </div>
 </div>
@@ -1340,6 +1345,175 @@
 <!--人口预测图表-->
 <script type="text/javascript">
 
+    $(function(){
+
+        var data = [
+            {
+                name : '2016',
+                value:[
+                    824.9300,
+                    736.0000,
+                    695.9998,
+                    870.4901,
+                    167.0344,
+                    114.7765,
+                    159.4396,
+                    220.5489,
+                    1044.4000,
+                    734.4000,
+                    662.7900,
+                    1078.4600,
+                    962.0500,
+                    687.0600,
+                    723.3100,
+                    972.4000,
+                ],
+                color:'#88b8d6'
+            },
+            {
+                name : '2017',
+                value:[
+                    828.3248,
+                    745.7649,
+                    704.6037,
+                    881.2029,
+                    169.1786,
+                    117.0411,
+                    160.8500,
+                    226.0910,
+                    1048.3343,
+                    735.0939,
+                    664.3642,
+                    1087.9900,
+                    955.0000,
+                    691.6919,
+                    732.1200,
+                    988.1000,
+                ],
+                color:'#d48265'
+            },
+            {
+                name : '2018',
+                value:[
+                    837.8121,
+                    753.0710,
+                    711.7777,
+                    893.4351,
+                    172.1050,
+                    120.2013,
+                    162.4477,
+                    233.5090,
+                    1060.4011,
+                    735.6542,
+                    671.8998,
+                    1101.7847,
+                    947.3432,
+                    698.4090,
+                    740.7200,
+                    1005.0193,
+                ],
+                color:'#c9c9c9'
+            }
+        ];
+        var chart = new iChart.ColumnMulti3D({
+            render : 'canvasDiv',
+            data: data,
+            labels:[
+                '西安',
+                '杭州',
+                '长沙',
+                '广州',
+                '海口',
+                '珠海',
+                '鄂尔多斯',
+                '厦门',
+                '天津',
+                '沈阳',
+                '南京',
+                '石家庄',
+                '哈尔滨',
+                '福州',
+                '济南',
+                '郑州',
+            ],
+            width : 1200,
+            height : 700,
+            background_color : '#ffffff',
+            border : {
+                enable : false
+            },
+            legend:{
+                enable:true,
+                background_color : null,
+                align : 'center',
+                valign : 'bottom',
+                row:1,
+                column:'max',
+                border : {
+                    enable : false
+                }
+            },
+            column_width : 4,//柱形宽度
+            zScale:8,//z轴深度倍数
+            xAngle : 50,
+            bottom_scale:1.1,
+            label:{
+                color:'#4c4f48'
+            },
+            sub_option:{
+                label :false
+            },
+            tip:{
+                enable :true
+            },
+            text_space : 16,//坐标系下方的label距离坐标系的距离。
+            coordinate:{
+                background_color : '#d7d7d5',
+                grid_color : '#a4a4a2',
+                color_factor : 0.24,
+                board_deep:10,
+                offsety:-10,
+                pedestal_height:10,
+                left_board:false,//取消左侧面板
+                width:800,
+                height:500,
+                scale:[{
+                    position:'left',
+                    start_scale:0,
+                    end_scale:1200,
+                    scale_space:200,
+                    scale_enable : false,
+                    label:{
+                        color:'#4c4f48'
+                    }
+                }]
+            }
+        });
+
+        //利用自定义组件构造左侧说明文本
+        chart.plugin(new iChart.Custom({
+            drawFn:function(){
+                //计算位置
+                var coo = chart.getCoordinate(),
+                    x = coo.get('originx'),
+                    y = coo.get('originy');
+                //在左上侧的位置，渲染一个单位的文字
+                chart.target.textAlign('start')
+                    .textBaseline('bottom')
+                    .textFont('600 11px Verdana')
+                    .fillText('人口增长(万人)',x-40,y-28,false,'#6d869f');
+
+            }
+        }));
+
+        chart.draw();
+    });
+
+
+
+</script>
+<!--<script type="text/javascript">
+
     // 基于准备好的dom，初始化echarts实例
     var app = echarts.init(document.getElementById('renkouChart'));
     app.title = '人口预测数据';
@@ -1525,7 +1699,7 @@
         ]
     };
     app.setOption(option);
-</script>
+</script>-->
 <!--放射性饼状图-->
 <script type="text/javascript">
     var days = ['', '配套保障', '落户政策力度', '安居补贴力度', '人才覆盖度', '政策强度'];

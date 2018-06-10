@@ -182,6 +182,7 @@ ul, li {
     font-weight: bold;
 
 }
+
 .content-wrap p span.blue b {
     /*border-bottom: 2px solid #333;*/
     display: inline-block;
@@ -513,6 +514,35 @@ ul, li {
 
 }
 
+.content-wrap .currency-chart .sandian-tips-left {
+    width: 300px;
+    position: absolute;
+    left: 60px;
+    top: 430px;
+    color: #999;
+    font-size: 18px;
+
+}
+
+.content-wrap .currency-chart .sandian-tips-center {
+    width: 300px;
+    position: absolute;
+    left: 440px;
+    top: 430px;
+    color: #999;
+    font-size: 18px;
+
+}
+
+.content-wrap .currency-chart .sandian-tips-right {
+    width: 300px;
+    position: absolute;
+    left: 815px;
+    top: 430px;
+    color: #999;
+    font-size: 18px;
+}
+
 .content-wrap .currency-title {
     width: 100%;
     text-align: center;
@@ -831,7 +861,8 @@ ul, li {
 .content-wrap .currency-chart .block_wrap .left-top {
     width: 180px;
     height: 180px;
-    background: #e3e3e3;
+    background: #666;
+    font-weight: bold;
 }
 
 .content-wrap .currency-chart .block_wrap .div1 {
@@ -935,14 +966,14 @@ ul, li {
 }
 
 .content-wrap .currency-chart .block_wrap .left-top > span {
-    font-size: 12px;
+    font-size: 15px;
     width: 170px;
     height: 30px;
     line-height: 30px;
     /* background: #e3e3e3; */
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 10px;
     color: #fff;
 }
 

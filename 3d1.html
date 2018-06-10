@@ -4,108 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,height=device-height">
     <title>多条阶梯折线图</title>
-    <style>::-webkit-scrollbar{display:none;}html,body{overflow:hidden;height:100%;}</style>
+    <style>::-webkit-scrollbar {
+        display: none;
+    }
+
+    html, body {
+        overflow: hidden;
+        height: 100%;
+    }</style>
 </head>
 <body>
 <div id="canvasDiv"></div>
-<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/document.body.clientHeight;</script>
+<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/
+document.body.clientHeight;</script>
 <!--<script src="https://gw.alipayobjects.com/os/antv/assets/g2/3.1.0/g2.min.js"></script>-->
 <!--<script src="https://gw.alipayobjects.com/os/antv/assets/data-set/0.8.7/data-set.min.js"></script>-->
 <script src="js/jquery.js"></script>
-<script src="js/ichart.js"> </script>
+<script src="js/ichart.js"></script>
 <script>
 
     $(function(){
-
-
-
         var data = [
             {
-                name : '2016',
-                value:[
+                name: '2016',
+                value: [
                     824.9300,
                     736.0000,
                     695.9998,
-                    // 139.89297,
                     870.4901,
                     167.0344,
-                    // 522.7900,
                     114.7765,
                     159.4396,
                     220.5489,
                     1044.4000,
-                    // 3392.1100,
                     734.4000,
                     662.7900,
-                    833.8400,
                     1078.4600,
-                    434.4400,
-                    753.4000,
                     962.0500,
                     687.0600,
                     723.3100,
                     972.4000,
-                    // 729.8300,
                 ],
-                color:'#88b8d6'
+                color: '#88b8d6'
             },
             {
-                name : '2017',
-                value:[
+                name: '2017',
+                value: [
                     828.3248,
                     745.7649,
                     704.6037,
-                    // 0,
                     881.2029,
                     169.1786,
-                    // 0,
                     117.0411,
                     160.8500,
                     226.0910,
                     1048.3343,
-                    // 3400.2161,
                     735.0939,
                     664.3642,
-                    // 0,
                     1087.9900,
-                    // 0,
-                    // 0,
                     955.0000,
                     691.6919,
                     732.1200,
                     988.1000,
-                    // 0
                 ],
-                color:'#d48265'
+                color: '#d48265'
             },
             {
-                name : '2018',
-                value:[
+                name: '2018',
+                value: [
                     837.8121,
                     753.0710,
                     711.7777,
-                    // 0,
                     893.4351,
                     172.1050,
-                    // 0,
                     120.2013,
                     162.4477,
                     233.5090,
                     1060.4011,
-                    // 3422.7449,
                     735.6542,
                     671.8998,
-                    // 0,
                     1101.7847,
-                    // 0,
-                    // 0,
                     947.3432,
                     698.4090,
                     740.7200,
                     1005.0193,
-                    // 0,
                 ],
-                color:'#c9c9c9'
+                color: '#c9c9c9'
             }
         ];
         var chart = new iChart.ColumnMulti3D({
@@ -115,39 +99,32 @@
                 '西安',
                 '杭州',
                 '长沙',
-                // '\n成都',
                 '广州',
                 '海口',
-                // '南昌',
                 '珠海',
                 '鄂尔多斯',
                 '厦门',
                 '天津',
-                // '重庆',
                 '沈阳',
                 '南京',
-                // '武汉',
                 '石家庄',
-                // '太原',
-                // '\n长春',
                 '哈尔滨',
                 '福州',
                 '济南',
                 '郑州',
-                // '合肥',
             ],
             title : {
-                text : '2016-2018年各市人口增长预测',
+                text : '2002-2011年各类教育招生人数',
                 color : '#3e576f'
             },
             footnote : {
-                // text : '数据来源：中华人民共和国国家统计局',
-                // color : '#909090',
-                // fontsize : 11,
-                // padding : '0 44'
+                text : '数据来源：中华人民共和国国家统计局',
+                color : '#909090',
+                fontsize : 11,
+                padding : '0 44'
             },
-            width : 1200,
-            height : 700,
+            width : 800,
+            height : 400,
             background_color : '#ffffff',
             legend:{
                 enable:true,
@@ -160,7 +137,7 @@
                     enable : false
                 }
             },
-            column_width : 4,//柱形宽度
+            column_width : 8,//柱形宽度
             zScale:8,//z轴深度倍数
             xAngle : 50,
             bottom_scale:1.1,
@@ -182,16 +159,21 @@
                 offsety:-10,
                 pedestal_height:10,
                 left_board:false,//取消左侧面板
-                width:800,
-                height:500,
+                width:620,
+                height:240,
                 scale:[{
                     position:'left',
                     start_scale:0,
-                    end_scale:1200,
+                    end_scale:1000,
                     scale_space:200,
                     scale_enable : false,
                     label:{
                         color:'#4c4f48'
+                    },
+                    listeners:{
+                        parseText:function(t,x,y){
+                            return {text:t/2}
+                        }
                     }
                 }]
             }
@@ -208,7 +190,7 @@
                 chart.target.textAlign('start')
                     .textBaseline('bottom')
                     .textFont('600 11px Verdana')
-                    .fillText('人口增长(万人)',x-40,y-28,false,'#6d869f');
+                    .fillText('招生人数(万人)',x-40,y-28,false,'#6d869f');
 
             }
         }));
