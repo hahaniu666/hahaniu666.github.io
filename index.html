@@ -992,7 +992,7 @@
         scrollbar: {
             el: '.swiper-scrollbar',
         },
-    })
+    });
 
 
     $(".cover").find(".sub-title").find("p").each(function () {
@@ -2213,11 +2213,7 @@
     var option = {
             tooltip: {
                 formatter: function (params) {
-                    for (var i = 0; i < dataMap.length; i++) {
-                        dataMap.selected = false;
-                    }
-                    params.data.selected = true;
-                    console.log('params.name', params, params.name, typeof params.name);
+                    // console.log('params.name', params, params.name, typeof params.name);
                     if (params.name == '安徽') {
                         var content = '目标不小，合肥五年内要实现百万人才在肥安居乐业。<br>2017年6月20日，中共合肥市委、市政府颁布《合肥市人民政府关于建设合肥综合性国家科学中心打造创新之都人才工作的意见》，<br>同年12月29日，市人社局发布《合肥市“鸿雁计划”实施细则（暂行）》等三个文件，<br>2018年4月26日市人社局又推出《关于进一步支持人才来肥创新创业的若干政策》。';
                         var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">' + content + '</p>';
